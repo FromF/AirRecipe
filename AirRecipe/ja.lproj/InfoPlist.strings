@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  AirRecipe
+
+  Created by Fuji on 2015/05/28.
+  Copyright (c) 2015年 FromF. All rights reserved.
+*/
+NSLocationWhenInUseUsageDescription = "現在位置情報をWatchAppで使用します";
+NSLocationAlwaysUsageDescription = "現在位置情報をWatchAppで使用します";

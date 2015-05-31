@@ -1,0 +1,753 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D267E8E1B141E95002EFE1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D267E8D1B141E95002EFE1A /* AppDelegate.swift */; };
+		9D267E901B141E95002EFE1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D267E8F1B141E95002EFE1A /* ViewController.swift */; };
+		9D267E931B141E96002EFE1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E911B141E96002EFE1A /* Main.storyboard */; };
+		9D267E951B141E96002EFE1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E941B141E96002EFE1A /* Images.xcassets */; };
+		9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E961B141E96002EFE1A /* LaunchScreen.xib */; };
+		9D267EA41B141E96002EFE1A /* AirRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */; };
+		9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E08821B16048200281F48 /* InterfaceController.swift */; };
+		9D9E08851B16048200281F48 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E08841B16048200281F48 /* NotificationController.swift */; };
+		9D9E08871B16048200281F48 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E08861B16048200281F48 /* GlanceController.swift */; };
+		9D9E08891B16048200281F48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08881B16048200281F48 /* Images.xcassets */; };
+		9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */; };
+		9D9E08951B16048200281F48 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08931B16048200281F48 /* Interface.storyboard */; };
+		9D9E08971B16048200281F48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08961B16048200281F48 /* Images.xcassets */; };
+		9D9E089A1B16048200281F48 /* AirRecipe WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9D9E08A41B161D2100281F48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08A61B161D2100281F48 /* InfoPlist.strings */; };
+		9D9E08A81B161D3C00281F48 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08AA1B161D3C00281F48 /* Localizable.strings */; };
+		9D9E08B01B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
+		9D9E08B11B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D267E9E1B141E96002EFE1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D267E801B141E95002EFE1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D267E871B141E95002EFE1A;
+			remoteInfo = AirRecipe;
+		};
+		9D9E088E1B16048200281F48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D267E801B141E95002EFE1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D9E088B1B16048200281F48;
+			remoteInfo = "AirRecipe WatchKit App";
+		};
+		9D9E08981B16048200281F48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D267E801B141E95002EFE1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D9E087C1B16048200281F48;
+			remoteInfo = "AirRecipe WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D9E08A11B16048200281F48 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9D9E089A1B16048200281F48 /* AirRecipe WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9D267E881B141E95002EFE1A /* AirRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D267E8C1B141E95002EFE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D267E8D1B141E95002EFE1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9D267E8F1B141E95002EFE1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D267E921B141E96002EFE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9D267E941B141E96002EFE1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9D267E971B141E96002EFE1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9D267E9D1B141E96002EFE1A /* AirRecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirRecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D267EA21B141E96002EFE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirRecipeTests.swift; sourceTree = "<group>"; };
+		9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AirRecipe WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9E08801B16048200281F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9E08811B16048200281F48 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		9D9E08821B16048200281F48 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9D9E08841B16048200281F48 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		9D9E08861B16048200281F48 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		9D9E08881B16048200281F48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AirRecipe WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9E08921B16048200281F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9E08941B16048200281F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		9D9E08961B16048200281F48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9D9E08A71B161D2300281F48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D9E08A91B161D3C00281F48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D9E08AB1B161D5200281F48 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9D9E08AC1B161D5200281F48 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D9E08AD1B170E7900281F48 /* AirRecipe WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D267E851B141E95002EFE1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08B01B170EA600281F48 /* OLYCameraKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D267E9A1B141E96002EFE1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D9E087A1B16048200281F48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08B11B170EA600281F48 /* OLYCameraKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D267E7F1B141E95002EFE1A = {
+			isa = PBXGroup;
+			children = (
+				9D9E08AE1B170E8600281F48 /* Framework */,
+				9D267E8A1B141E95002EFE1A /* AirRecipe */,
+				9D267EA01B141E96002EFE1A /* AirRecipeTests */,
+				9D9E087E1B16048200281F48 /* AirRecipe WatchKit Extension */,
+				9D9E08901B16048200281F48 /* AirRecipe WatchKit App */,
+				9D267E891B141E95002EFE1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9D267E891B141E95002EFE1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D267E881B141E95002EFE1A /* AirRecipe.app */,
+				9D267E9D1B141E96002EFE1A /* AirRecipeTests.xctest */,
+				9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */,
+				9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D267E8A1B141E95002EFE1A /* AirRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				9D267E8D1B141E95002EFE1A /* AppDelegate.swift */,
+				9D267E8F1B141E95002EFE1A /* ViewController.swift */,
+				9D267E911B141E96002EFE1A /* Main.storyboard */,
+				9D267E941B141E96002EFE1A /* Images.xcassets */,
+				9D267E961B141E96002EFE1A /* LaunchScreen.xib */,
+				9D267E8B1B141E95002EFE1A /* Supporting Files */,
+			);
+			path = AirRecipe;
+			sourceTree = "<group>";
+		};
+		9D267E8B1B141E95002EFE1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D267E8C1B141E95002EFE1A /* Info.plist */,
+				9D9E08AA1B161D3C00281F48 /* Localizable.strings */,
+				9D9E08A61B161D2100281F48 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D267EA01B141E96002EFE1A /* AirRecipeTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */,
+				9D267EA11B141E96002EFE1A /* Supporting Files */,
+			);
+			path = AirRecipeTests;
+			sourceTree = "<group>";
+		};
+		9D267EA11B141E96002EFE1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D267EA21B141E96002EFE1A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D9E087E1B16048200281F48 /* AirRecipe WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E08821B16048200281F48 /* InterfaceController.swift */,
+				9D9E08841B16048200281F48 /* NotificationController.swift */,
+				9D9E08861B16048200281F48 /* GlanceController.swift */,
+				9D9E08AD1B170E7900281F48 /* AirRecipe WatchKit Extension-Bridging-Header.h */,
+				9D9E08881B16048200281F48 /* Images.xcassets */,
+				9D9E087F1B16048200281F48 /* Supporting Files */,
+			);
+			path = "AirRecipe WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		9D9E087F1B16048200281F48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E08801B16048200281F48 /* Info.plist */,
+				9D9E08811B16048200281F48 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D9E08901B16048200281F48 /* AirRecipe WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E08931B16048200281F48 /* Interface.storyboard */,
+				9D9E08961B16048200281F48 /* Images.xcassets */,
+				9D9E08911B16048200281F48 /* Supporting Files */,
+			);
+			path = "AirRecipe WatchKit App";
+			sourceTree = "<group>";
+		};
+		9D9E08911B16048200281F48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E08921B16048200281F48 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D9E08AE1B170E8600281F48 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D267E871B141E95002EFE1A /* AirRecipe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D267EA71B141E96002EFE1A /* Build configuration list for PBXNativeTarget "AirRecipe" */;
+			buildPhases = (
+				9D267E841B141E95002EFE1A /* Sources */,
+				9D267E851B141E95002EFE1A /* Frameworks */,
+				9D267E861B141E95002EFE1A /* Resources */,
+				9D9E08A11B16048200281F48 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D9E08991B16048200281F48 /* PBXTargetDependency */,
+			);
+			name = AirRecipe;
+			productName = AirRecipe;
+			productReference = 9D267E881B141E95002EFE1A /* AirRecipe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9D267E9C1B141E96002EFE1A /* AirRecipeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D267EAA1B141E96002EFE1A /* Build configuration list for PBXNativeTarget "AirRecipeTests" */;
+			buildPhases = (
+				9D267E991B141E96002EFE1A /* Sources */,
+				9D267E9A1B141E96002EFE1A /* Frameworks */,
+				9D267E9B1B141E96002EFE1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D267E9F1B141E96002EFE1A /* PBXTargetDependency */,
+			);
+			name = AirRecipeTests;
+			productName = AirRecipeTests;
+			productReference = 9D267E9D1B141E96002EFE1A /* AirRecipeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9D9E087C1B16048200281F48 /* AirRecipe WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D9E089E1B16048200281F48 /* Build configuration list for PBXNativeTarget "AirRecipe WatchKit Extension" */;
+			buildPhases = (
+				9D9E08791B16048200281F48 /* Sources */,
+				9D9E087A1B16048200281F48 /* Frameworks */,
+				9D9E087B1B16048200281F48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D9E088F1B16048200281F48 /* PBXTargetDependency */,
+			);
+			name = "AirRecipe WatchKit Extension";
+			productName = "AirRecipe WatchKit Extension";
+			productReference = 9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		9D9E088B1B16048200281F48 /* AirRecipe WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D9E089B1B16048200281F48 /* Build configuration list for PBXNativeTarget "AirRecipe WatchKit App" */;
+			buildPhases = (
+				9D9E088A1B16048200281F48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AirRecipe WatchKit App";
+			productName = "AirRecipe WatchKit App";
+			productReference = 9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D267E801B141E95002EFE1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = FromF;
+				TargetAttributes = {
+					9D267E871B141E95002EFE1A = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					9D267E9C1B141E96002EFE1A = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 9D267E871B141E95002EFE1A;
+					};
+					9D9E087C1B16048200281F48 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					9D9E088B1B16048200281F48 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 9D267E831B141E95002EFE1A /* Build configuration list for PBXProject "AirRecipe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = 9D267E7F1B141E95002EFE1A;
+			productRefGroup = 9D267E891B141E95002EFE1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D267E871B141E95002EFE1A /* AirRecipe */,
+				9D267E9C1B141E96002EFE1A /* AirRecipeTests */,
+				9D9E087C1B16048200281F48 /* AirRecipe WatchKit Extension */,
+				9D9E088B1B16048200281F48 /* AirRecipe WatchKit App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D267E861B141E95002EFE1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08A81B161D3C00281F48 /* Localizable.strings in Resources */,
+				9D267E931B141E96002EFE1A /* Main.storyboard in Resources */,
+				9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */,
+				9D267E951B141E96002EFE1A /* Images.xcassets in Resources */,
+				9D9E08A41B161D2100281F48 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D267E9B1B141E96002EFE1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D9E087B1B16048200281F48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08891B16048200281F48 /* Images.xcassets in Resources */,
+				9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D9E088A1B16048200281F48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08951B16048200281F48 /* Interface.storyboard in Resources */,
+				9D9E08971B16048200281F48 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D267E841B141E95002EFE1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D267E901B141E95002EFE1A /* ViewController.swift in Sources */,
+				9D267E8E1B141E95002EFE1A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D267E991B141E96002EFE1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D267EA41B141E96002EFE1A /* AirRecipeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D9E08791B16048200281F48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9E08851B16048200281F48 /* NotificationController.swift in Sources */,
+				9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */,
+				9D9E08871B16048200281F48 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D267E9F1B141E96002EFE1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D267E871B141E95002EFE1A /* AirRecipe */;
+			targetProxy = 9D267E9E1B141E96002EFE1A /* PBXContainerItemProxy */;
+		};
+		9D9E088F1B16048200281F48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D9E088B1B16048200281F48 /* AirRecipe WatchKit App */;
+			targetProxy = 9D9E088E1B16048200281F48 /* PBXContainerItemProxy */;
+		};
+		9D9E08991B16048200281F48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D9E087C1B16048200281F48 /* AirRecipe WatchKit Extension */;
+			targetProxy = 9D9E08981B16048200281F48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9D267E911B141E96002EFE1A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D267E921B141E96002EFE1A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9D267E961B141E96002EFE1A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D267E971B141E96002EFE1A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9D9E08931B16048200281F48 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D9E08941B16048200281F48 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		9D9E08A61B161D2100281F48 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D9E08A71B161D2300281F48 /* en */,
+				9D9E08AC1B161D5200281F48 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9D9E08AA1B161D3C00281F48 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D9E08A91B161D3C00281F48 /* en */,
+				9D9E08AB1B161D5200281F48 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9D267EA51B141E96002EFE1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D267EA61B141E96002EFE1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9D267EA81B141E96002EFE1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = AirRecipe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9D267EA91B141E96002EFE1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = AirRecipe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9D267EAB1B141E96002EFE1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AirRecipeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirRecipe.app/AirRecipe";
+			};
+			name = Debug;
+		};
+		9D267EAC1B141E96002EFE1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AirRecipeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirRecipe.app/AirRecipe";
+			};
+			name = Release;
+		};
+		9D9E089C1B16048200281F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = AirRecipe_WatchKit_Extension;
+				INFOPLIST_FILE = "AirRecipe WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		9D9E089D1B16048200281F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = AirRecipe_WatchKit_Extension;
+				INFOPLIST_FILE = "AirRecipe WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		9D9E089F1B16048200281F48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AirRecipe WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/AirRecipe WatchKit Extension-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		9D9E08A01B16048200281F48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "AirRecipe WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/AirRecipe WatchKit Extension-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D267E831B141E95002EFE1A /* Build configuration list for PBXProject "AirRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D267EA51B141E96002EFE1A /* Debug */,
+				9D267EA61B141E96002EFE1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D267EA71B141E96002EFE1A /* Build configuration list for PBXNativeTarget "AirRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D267EA81B141E96002EFE1A /* Debug */,
+				9D267EA91B141E96002EFE1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D267EAA1B141E96002EFE1A /* Build configuration list for PBXNativeTarget "AirRecipeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D267EAB1B141E96002EFE1A /* Debug */,
+				9D267EAC1B141E96002EFE1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D9E089B1B16048200281F48 /* Build configuration list for PBXNativeTarget "AirRecipe WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9E089C1B16048200281F48 /* Debug */,
+				9D9E089D1B16048200281F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D9E089E1B16048200281F48 /* Build configuration list for PBXNativeTarget "AirRecipe WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9E089F1B16048200281F48 /* Debug */,
+				9D9E08A01B16048200281F48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D267E801B141E95002EFE1A /* Project object */;
+}

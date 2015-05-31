@@ -1,0 +1,13 @@
+/* 
+  Language.strings
+  AirRecipe
+
+  Created by Fuji on 2015/05/27.
+  Copyright (c) 2015年 FromF. All rights reserved.
+*/
+SINGLE = "単写撮影\n静止している撮影に最適です";
+CONTINUOUS = "連写撮影\n動きが早い被写体の撮影に最適です";
+MOVIE = "MOVIE\n動画撮影ができます";
+SINGLE_IMG = "single.jpg";
+CONTINUOUS_IMG = "continuous.jpg";
+MOVIE_IMG = "movie.jpg";
