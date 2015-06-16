@@ -12,6 +12,11 @@ import Foundation
 
 class GlanceController: WKInterfaceController {
 
+    //Keys
+    let CatalogSlectImageName:String = "SlectImageName"
+    //UI
+    @IBOutlet weak var imageView: WKInterfaceImage!
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
@@ -21,6 +26,19 @@ class GlanceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        
+        WKInterfaceController.openParentApplication(["getinfo": ""],
+            reply: {replyInfo, error in
+                //self.propertyDictionary.removeAll(keepCapacity: false)
+                var relyInfokeys = Array(replyInfo.keys)
+                for relyInfokey in relyInfokeys {
+                    if relyInfokey == self.CatalogSlectImageName {
+                        let imagename:String = replyInfo["\(relyInfokey)"] as! String
+                        self.imageView.setImage(UIImage(named: imagename))
+                    }
+                }
+        })
     }
 
     override func didDeactivate() {

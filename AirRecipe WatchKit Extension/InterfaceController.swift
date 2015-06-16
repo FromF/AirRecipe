@@ -12,6 +12,7 @@ import CoreLocation
 
 
 class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate {
+    //Tags
     let CatalogSelectNumber:String = "SelectNumber"
     //CoreLocation Serivce
     var locationManager = CLLocationManager()
@@ -24,6 +25,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     ]
     //LiveViewCounter
     var liveviewCount : NSInteger = 0
+    //HDR Mode Flag
+    var isHDRShooting : Bool = false
     //UI
     @IBOutlet weak var imageView: WKInterfaceImage!
     @IBOutlet weak var Button: WKInterfaceButton!
@@ -103,11 +106,48 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
         
         WKInterfaceController.openParentApplication(["getinfo": ""],
             reply: {replyInfo, error in
-                self.propertyDictionary.removeAll(keepCapacity: false)
+                //self.propertyDictionary.removeAll(keepCapacity: false)
                 var relyInfokeys = Array(replyInfo.keys)
                 for relyInfokey in relyInfokeys {
-                    if relyInfokey != self.CatalogSelectNumber {
-                        self.propertyDictionary["\(relyInfokey)"] = replyInfo["\(relyInfokey)"] as? String
+                    if relyInfokey == self.CatalogSelectNumber {
+                        let index:NSInteger! = (replyInfo["\(relyInfokey)"] as! String).toInt()
+                        self.isHDRShooting = false   //基本はHDR撮影ではない
+
+                        switch(index) {
+                        case 0: //SINGLE_IMG
+                            self.propertyDictionary = [
+                                "TAKEMODE":"<TAKEMODE/iAuto>",
+                                "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                            ]
+                            
+                        case 1: //CONTINUOUS_IMG
+                            self.propertyDictionary = [
+                                "TAKEMODE":"<TAKEMODE/iAuto>",
+                                "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_CONTINUE>",
+                            ]
+                            
+                        case 2: //MOVIE_IMG
+                            self.propertyDictionary = [
+                                "TAKEMODE":"<TAKEMODE/movie>",
+                            ]
+                            
+                        case 3: //HDR_IMG
+                            self.propertyDictionary = [
+                                "TAKEMODE":"<TAKEMODE/A>",
+                                "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                                "APERTURE":"<APERTURE/8.0>",
+                                "RAW":"<RAW/ON>",
+                            ]
+                            self.isHDRShooting = true    //HDR撮影
+                            
+                        default:
+                            self.propertyDictionary = [
+                                "TAKEMODE":"<TAKEMODE/iAuto>",
+                                "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                            ]
+                            
+                        }
+                        
                     }
                 }
                 println(self.propertyDictionary)
@@ -146,9 +186,34 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     
     
     func takePicture() {
-        var actionType :OLYCameraActionType = self.camera.actionType()
+        let actionType :OLYCameraActionType = self.camera.actionType()
 
-        if ((actionType.value == OLYCameraActionTypeSingle.value) || (actionType.value == OLYCameraActionTypeSequential.value)) {
+        if (self.isHDRShooting) {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.Button.setEnabled(false)
+            }
+            
+            camera.lockAutoExposure(nil)
+            camera.setCameraPropertyValue("EXPREV", value: "+2.0", error: nil)
+            camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.camera.setCameraPropertyValue("EXPREV", value: "0.0", error: nil)
+                    self.camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.camera.setCameraPropertyValue("EXPREV", value: "-2.0", error: nil)
+                            self.camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    self.camera.setCameraPropertyValue("EXPREV", value: "0.0", error: nil)
+                                    self.camera.unlockAutoExposure(nil)
+                                    self.Button.setEnabled(true)
+                                }
+                                }}, errorHandler: nil)
+                        }
+                        }}, errorHandler: nil)
+                }
+                }}, errorHandler: nil)
+            
+        } else if (actionType.value == OLYCameraActionTypeSingle.value) {
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
@@ -157,10 +222,20 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                     self.ButtonUpdate()
                 }
                 }}, errorHandler: nil)
+        } else if (actionType.value == OLYCameraActionTypeSequential.value) {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.Button.setEnabled(false)
+            }
+            camera.startTakingPicture(nil, progressHandler: nil, completionHandler: {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.ButtonUpdate()
+                }
+            }, errorHandler: nil)
         } else if (actionType.value == OLYCameraActionTypeMovie.value) {
             if (camera.recordingVideo) {
-                camera.stopRecordingVideo(nil, errorHandler: nil)
-                self.ButtonUpdate()
+                camera.stopRecordingVideo( { info in
+                    self.ButtonUpdate()
+                    }, errorHandler: nil)
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.Button.setEnabled(false)

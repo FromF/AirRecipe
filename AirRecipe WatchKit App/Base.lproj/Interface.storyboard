@@ -29,12 +29,26 @@
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
             <objects>
-                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="AirRecipe_WatchKit_App" customModuleProvider="target">
+                <glanceController spacing="0.0" topTemplateType="groupLeftLarge" id="0uZ-2p-rRc" customClass="GlanceController" customModule="AirRecipe_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" id="Lz2-nm-eRM">
+                            <items>
+                                <imageView alignment="center" verticalAlignment="center" image="glanceicon.png" contentMode="scaleAspectFit" id="1YP-Qq-yGS"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="AirRecipe" id="EA1-UN-mvY"/>
+                        <label alignment="left" id="uVH-5j-YrZ"/>
+                        <label alignment="left" id="Cuy-kJ-W57"/>
+                        <group alignment="left" id="uCw-4Q-Ouw">
+                            <items>
+                                <imageView width="136" height="115" alignment="center" verticalAlignment="center" image="AirRecipeBGP_01iAuto.jpg" contentMode="scaleAspectFill" id="cTe-5p-kJ5"/>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="imageView" destination="cTe-5p-kJ5" id="mCb-yb-ZWO"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="235" y="672"/>

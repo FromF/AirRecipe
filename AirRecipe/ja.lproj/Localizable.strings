@@ -5,9 +5,11 @@
   Created by Fuji on 2015/05/27.
   Copyright (c) 2015年 FromF. All rights reserved.
 */
-SINGLE = "単写撮影\n静止している撮影に最適です";
-CONTINUOUS = "連写撮影\n動きが早い被写体の撮影に最適です";
-MOVIE = "MOVIE\n動画撮影ができます";
-SINGLE_IMG = "single.jpg";
-CONTINUOUS_IMG = "continuous.jpg";
-MOVIE_IMG = "movie.jpg";
+SINGLE = "単写撮影\nAIRが自動的にシーンを判定し、オートでキレイに撮影します。";
+CONTINUOUS = "連写撮影\n10fpsで1秒間連写撮影できます。";
+MOVIE = "MOVIE\n動画(Full HD 30fps)が撮影できます。";
+HDR = "HDRブラケット撮影\nHDR合成用の写真を以下の設定で３枚撮影します。\n-撮影モード：A(絞り優先)モード\n-露出補正：+2.0,0,-2.0\n-画質モード：RAW+JPEG";
+SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
+CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
+MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";
+HDR_IMG = "AirRecipeBGP_04HdrBkt.jpg";

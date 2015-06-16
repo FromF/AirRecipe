@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let CatalogSelectNumber:String = "SelectNumber"
-    let TAKEMODE:String = "TAKEMODE"
-    let TAKE_DRIVE:String = "TAKE_DRIVE"
+    let CatalogSlectImageName:String = "SlectImageName"
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -50,27 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
         //設定呼び出し
         let currentPage = defaults.objectForKey(CatalogSelectNumber) as! NSInteger
-        
-        var takemode:String = "iAuto"
-        var takedrive:String = "DRIVE_NORMAL"
-        
-        switch(currentPage) {
-        //case 0:
-            
-        //case 1:
-            //takedrive = "DRIVE_CONTINUE"  //不具合があるので連写は一旦見送り
-        case 2:
-            takemode = "movie"
-            
-        default:
-            break;
-        }
+        let filename = getImageFilename(currentPage)
         
         //応答
         var replyDictionary = [
             CatalogSelectNumber:"\(currentPage)",
-            TAKEMODE:"<\(TAKEMODE)/\(takemode)>",
-            TAKE_DRIVE:"<\(TAKE_DRIVE)/\(takedrive)>",
+            CatalogSlectImageName:"\(filename)"
         ]
         reply(replyDictionary)
     }
@@ -78,3 +62,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+func getImageFilename(index:NSInteger) ->String {
+    var filename : String = ""
+    
+    switch(index) {
+    case 0:
+        filename = NSLocalizedString("SINGLE_IMG",comment: "")
+    case 1:
+        filename = NSLocalizedString("CONTINUOUS_IMG",comment: "")
+    case 2:
+        filename = NSLocalizedString("MOVIE_IMG",comment: "")
+    case 3:
+        filename = NSLocalizedString("HDR_IMG",comment: "")
+    default:
+        filename = NSLocalizedString("SINGLE_IMG",comment: "")
+    }
+
+    return filename
+}
