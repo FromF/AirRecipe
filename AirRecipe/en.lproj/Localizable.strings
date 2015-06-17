@@ -5,10 +5,10 @@
   Created by Fuji on 2015/05/27.
   Copyright (c) 2015年 FromF. All rights reserved.
 */
-SINGLE = "単写撮影\nAIRが自動的にシーンを判定し、オートでキレイに撮影します。";
-CONTINUOUS = "連写撮影\n10fpsで1秒間連写撮影できます。";
-MOVIE = "MOVIE\n動画(Full HD 30fps)が撮影できます。";
-HDR = "HDRブラケット撮影\nHDR合成用の写真を以下の設定で３枚撮影します。\n-撮影モード：A(絞り優先)モード\n-露出補正：+2.0,0,-2.0\n-画質モード：RAW+JPEG";
+SINGLE = "Single shooting\nAIR automatically detects shooting scenes and applies optimal exposure control.";
+CONTINUOUS = "Burst shooting\nYou can take continuous photos at 10fps for 1sec.";
+MOVIE = "Video recording\nYou can take a video(Full HD/30fps).";
+HDR = "Bracket shooting for HDR photo\n3 photos for HDR composition are taken withe following settings.\n- Shooting mode : A(Aperture priority) mode\n- Exposure compensation : -2.0, 0, 2.0\n- Image quality mode : RAW+JPG";
 SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
 CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
 MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";

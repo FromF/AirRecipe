@@ -19,7 +19,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     var locationManager = CLLocationManager()
     //
     var CatalogImageViews:AnyObject!
-    let CatalogPageMax:NSInteger = 3
+    let CatalogPageMax:NSInteger = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()

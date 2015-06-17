@@ -11,5 +11,6 @@
 
 #import <OLYCameraKit/OLYCamera.h>
 #import <OLYCameraKit/OACentralConfiguration.h>
+#import "ShootingSequence.h"
 
 #endif

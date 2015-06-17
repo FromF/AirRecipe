@@ -29,6 +29,7 @@
 		9D8D902C1B306FFB003FB89C /* AirRecipeBGP_03Movie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90251B306FFB003FB89C /* AirRecipeBGP_03Movie.jpg */; };
 		9D8D902D1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
 		9D8D902E1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
+		9D980D201B311D76005451E3 /* ShootingSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D980D1F1B311D76005451E3 /* ShootingSequence.m */; };
 		9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E08821B16048200281F48 /* InterfaceController.swift */; };
 		9D9E08891B16048200281F48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08881B16048200281F48 /* Images.xcassets */; };
 		9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */; };
@@ -99,6 +100,8 @@
 		9D8D90241B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_02Burst.jpg; path = Resouce/WatchImage/AirRecipeBGP_02Burst.jpg; sourceTree = "<group>"; };
 		9D8D90251B306FFB003FB89C /* AirRecipeBGP_03Movie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Movie.jpg; path = Resouce/WatchImage/AirRecipeBGP_03Movie.jpg; sourceTree = "<group>"; };
 		9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_04HdrBkt.jpg; path = Resouce/WatchImage/AirRecipeBGP_04HdrBkt.jpg; sourceTree = "<group>"; };
+		9D980D1E1B311D76005451E3 /* ShootingSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShootingSequence.h; sourceTree = "<group>"; };
+		9D980D1F1B311D76005451E3 /* ShootingSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShootingSequence.m; sourceTree = "<group>"; };
 		9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AirRecipe WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9E08801B16048200281F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9E08811B16048200281F48 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				9D9E08AD1B170E7900281F48 /* AirRecipe WatchKit Extension-Bridging-Header.h */,
 				9D9E08881B16048200281F48 /* Images.xcassets */,
 				9D9E087F1B16048200281F48 /* Supporting Files */,
+				9D980D1E1B311D76005451E3 /* ShootingSequence.h */,
+				9D980D1F1B311D76005451E3 /* ShootingSequence.m */,
 			);
 			path = "AirRecipe WatchKit Extension";
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8D901D1B306900003FB89C /* NotificationController.swift in Sources */,
+				9D980D201B311D76005451E3 /* ShootingSequence.m in Sources */,
 				9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */,
 				9D8D901E1B306903003FB89C /* GlanceController.swift in Sources */,
 			);

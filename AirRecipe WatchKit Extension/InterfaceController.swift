@@ -118,12 +118,14 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/iAuto>",
                                 "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                                "RECVIEW":"<RECVIEW/OFF>",
                             ]
                             
                         case 1: //CONTINUOUS_IMG
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/iAuto>",
                                 "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_CONTINUE>",
+                                "RECVIEW":"<RECVIEW/OFF>",
                             ]
                             
                         case 2: //MOVIE_IMG
@@ -136,7 +138,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                                 "TAKEMODE":"<TAKEMODE/A>",
                                 "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
                                 "APERTURE":"<APERTURE/8.0>",
-                                "RAW":"<RAW/ON>",
+                                //"RAW":"<RAW/ON>",
+                                "RECVIEW":"<RECVIEW/OFF>",
                             ]
                             self.isHDRShooting = true    //HDR撮影
                             
@@ -144,6 +147,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/iAuto>",
                                 "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                                "RECVIEW":"<RECVIEW/OFF>",
                             ]
                             
                         }
@@ -192,27 +196,13 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
-            
-            camera.lockAutoExposure(nil)
-            camera.setCameraPropertyValue("EXPREV", value: "+2.0", error: nil)
-            camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                //HDR Shooting sequence call
+                ShootingSequence().takePictureHDR(self.camera)
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.camera.setCameraPropertyValue("EXPREV", value: "0.0", error: nil)
-                    self.camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.camera.setCameraPropertyValue("EXPREV", value: "-2.0", error: nil)
-                            self.camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    self.camera.setCameraPropertyValue("EXPREV", value: "0.0", error: nil)
-                                    self.camera.unlockAutoExposure(nil)
-                                    self.Button.setEnabled(true)
-                                }
-                                }}, errorHandler: nil)
-                        }
-                        }}, errorHandler: nil)
+                    self.Button.setEnabled(true)
                 }
-                }}, errorHandler: nil)
-            
+            })
         } else if (actionType.value == OLYCameraActionTypeSingle.value) {
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
