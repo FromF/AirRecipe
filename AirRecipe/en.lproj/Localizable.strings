@@ -5,10 +5,10 @@
   Created by Fuji on 2015/05/27.
   Copyright (c) 2015年 FromF. All rights reserved.
 */
-SINGLE = "Single shooting\nAIR automatically detects shooting scenes and applies optimal exposure control.";
+SINGLE = "Single shooting\nAir automatically detects shooting scenes and applies optimal exposure control.";
 CONTINUOUS = "Burst shooting\nYou can take continuous photos at 10fps for 1sec.";
 MOVIE = "Video recording\nYou can take a video(Full HD/30fps).";
-HDR = "Bracket shooting for HDR photo\n3 photos for HDR composition are taken withe following settings.\n- Shooting mode : A(Aperture priority) mode\n- Exposure compensation : -2.0, 0, 2.0\n- Image quality mode : RAW+JPG";
+HDR = "Bracket shooting for HDR photo\n3 photos for HDR composition are taken withe following settings.\n- Shooting mode : A(Aperture priority) mode\n- Exposure compensation : -2.0, 0, 2.0\n* ISO speed, White balance and Image quality mode are applied the stand-alone settings.";
 SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
 CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
 MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";

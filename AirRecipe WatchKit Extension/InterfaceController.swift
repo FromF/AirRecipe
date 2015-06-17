@@ -27,6 +27,9 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     var liveviewCount : NSInteger = 0
     //HDR Mode Flag
     var isHDRShooting : Bool = false
+    //Holding Connection
+    var isHoldConnect : Bool = false
+    var isNeedDisconnect : Bool = false
     //UI
     @IBOutlet weak var imageView: WKInterfaceImage!
     @IBOutlet weak var Button: WKInterfaceButton!
@@ -131,6 +134,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                         case 2: //MOVIE_IMG
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/movie>",
+                                "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_FULL_HD_NORMAL>",
                             ]
                             
                         case 3: //HDR_IMG
@@ -180,19 +184,36 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     }
     
     func disconnect() {
-        imageView.setImage(nil)
-        
-        if (camera.connected) {
-            camera.disconnectWithPowerOff(false, error: nil)
+        if (isHoldConnect) {
+            isNeedDisconnect = true
+        } else {
+            imageView.setImage(nil)
+            
+            if (camera.connected) {
+                camera.disconnectWithPowerOff(false, error: nil)
+            }
+            ButtonUpdate()
         }
-        ButtonUpdate()
     }
     
+    func holdConnect() {
+        isHoldConnect = true
+        isNeedDisconnect = false
+    }
+    
+    func cancelHoldConnect() {
+        isHoldConnect = false
+        
+        if (isNeedDisconnect) {
+            disconnect()
+        }
+    }
     
     func takePicture() {
         let actionType :OLYCameraActionType = self.camera.actionType()
 
         if (self.isHDRShooting) {
+            holdConnect()
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
@@ -201,6 +222,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                 ShootingSequence().takePictureHDR(self.camera)
                 dispatch_async(dispatch_get_main_queue()) {
                     self.Button.setEnabled(true)
+                    self.cancelHoldConnect()
                 }
             })
         } else if (actionType.value == OLYCameraActionTypeSingle.value) {
@@ -213,14 +235,19 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                 }
                 }}, errorHandler: nil)
         } else if (actionType.value == OLYCameraActionTypeSequential.value) {
+            let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0)
+
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
             camera.startTakingPicture(nil, progressHandler: nil, completionHandler: {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.ButtonUpdate()
-                }
             }, errorHandler: nil)
+            NSThread.sleepForTimeInterval(1.0)
+            camera.stopTakingPicture(nil, completionHandler:  { info in {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.ButtonUpdate()
+                    }
+                }}, errorHandler: nil)
         } else if (actionType.value == OLYCameraActionTypeMovie.value) {
             if (camera.recordingVideo) {
                 camera.stopRecordingVideo( { info in
@@ -262,6 +289,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
 
     //MARK:- disconnect
     func camera(camera: OLYCamera!, disconnectedByError error: NSError!) {
+        isHoldConnect = false
         disconnect()
     }
     
