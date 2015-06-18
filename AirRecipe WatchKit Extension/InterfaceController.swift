@@ -134,7 +134,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                         case 2: //MOVIE_IMG
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/movie>",
-                                "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_FULL_HD_NORMAL>",
+                                "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_SHORT_MOVIE>",
                             ]
                             
                         case 3: //HDR_IMG
