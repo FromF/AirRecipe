@@ -92,7 +92,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
             case 1:
                 self.DetailTextView.text = NSLocalizedString("CONTINUOUS",comment: "")
             case 2:
-                self.DetailTextView.text = NSLocalizedString("MOVIE",comment: "")
+                self.DetailTextView.text = NSLocalizedString("CLIPS",comment: "")
             case 3:
                 self.DetailTextView.text = NSLocalizedString("HDR",comment: "")
             default:

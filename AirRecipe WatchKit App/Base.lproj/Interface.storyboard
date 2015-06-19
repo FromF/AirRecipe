@@ -42,7 +42,7 @@
                         <label alignment="left" id="Cuy-kJ-W57"/>
                         <group alignment="left" id="uCw-4Q-Ouw">
                             <items>
-                                <imageView width="136" height="115" alignment="center" verticalAlignment="center" image="AirRecipeBGP_01iAuto.jpg" contentMode="scaleAspectFill" id="cTe-5p-kJ5"/>
+                                <imageView width="136" height="115" alignment="center" verticalAlignment="center" contentMode="scaleAspectFill" id="cTe-5p-kJ5"/>
                             </items>
                         </group>
                     </items>

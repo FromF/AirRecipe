@@ -13,5 +13,7 @@
 @interface ShootingSequence : NSObject
 
 -(void)takePictureHDR:(OLYCamera *)camera;
+-(void)takePictureSingle:(OLYCamera *)camera;
+-(void)takePictureContinue:(OLYCamera *)camera;
 
 @end

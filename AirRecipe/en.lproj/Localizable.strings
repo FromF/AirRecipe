@@ -7,9 +7,11 @@
 */
 SINGLE = "Single shooting\nAir automatically detects shooting scenes and applies optimal exposure control.";
 CONTINUOUS = "Burst shooting\nYou can take continuous photos at 10fps for 1sec.";
-MOVIE = "Video recording\nYou can take a video(Full HD/30fps).";
+//MOVIE = "Video recording\nYou can take a video(Full HD/30fps).";
+CLIPS = "Clip recording\nYou can take a short clip(short movie).\nClip length is applied the stand-alone settings.\n* Multiple short clips can be combined and rearranged into a single short movie by using Olympus official app(OA.Clips).";
 HDR = "Bracket shooting for HDR photo\n3 photos for HDR composition are taken withe following settings.\n- Shooting mode : A(Aperture priority) mode\n- Exposure compensation : -2.0, 0, 2.0\n* ISO speed, White balance and Image quality mode are applied the stand-alone settings.";
 SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
 CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
-MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";
+//MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";
+CLIPS_IMG = "AirRecipeBGP_03Clip.jpg";
 HDR_IMG = "AirRecipeBGP_04HdrBkt.jpg";

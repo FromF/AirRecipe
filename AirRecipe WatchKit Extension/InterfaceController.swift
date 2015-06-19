@@ -25,6 +25,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     ]
     //LiveViewCounter
     var liveviewCount : NSInteger = 0
+    //Clips Mode Flag
+    var isClipsMovie : Bool = false
     //HDR Mode Flag
     var isHDRShooting : Bool = false
     //Holding Connection
@@ -85,8 +87,12 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                 self.Button.setEnabled(true)
                 var actionType :OLYCameraActionType = self.camera.actionType()
                 if (actionType.value == OLYCameraActionTypeMovie.value) {
-                    if (self.camera.recordingVideo) {
-                        self.Button.setTitle("Stop")
+                    if (!self.isClipsMovie) {
+                        if (self.camera.recordingVideo) {
+                            self.Button.setTitle("Stop")
+                        } else {
+                            self.Button.setTitle("Rec")
+                        }
                     } else {
                         self.Button.setTitle("Rec")
                     }
@@ -114,7 +120,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                 for relyInfokey in relyInfokeys {
                     if relyInfokey == self.CatalogSelectNumber {
                         let index:NSInteger! = (replyInfo["\(relyInfokey)"] as! String).toInt()
-                        self.isHDRShooting = false   //基本はHDR撮影ではない
+                        self.isHDRShooting = false  //基本はHDR撮影ではない
+                        self.isClipsMovie = false   //基本はClips動画ではない
 
                         switch(index) {
                         case 0: //SINGLE_IMG
@@ -136,7 +143,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                                 "TAKEMODE":"<TAKEMODE/movie>",
                                 "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_SHORT_MOVIE>",
                             ]
-                            
+                            self.isClipsMovie = true    //Clips動画
+
                         case 3: //HDR_IMG
                             self.propertyDictionary = [
                                 "TAKEMODE":"<TAKEMODE/A>",
@@ -229,30 +237,32 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
-            camera.takePicture(nil, progressHandler: nil, completionHandler:{info in {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                ShootingSequence().takePictureSingle(self.camera)
                 dispatch_async(dispatch_get_main_queue()) {
                     self.ButtonUpdate()
                 }
-                }}, errorHandler: nil)
+            })
         } else if (actionType.value == OLYCameraActionTypeSequential.value) {
-            let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0)
-
             dispatch_async(dispatch_get_main_queue()) {
                 self.Button.setEnabled(false)
             }
+            NSThread.sleepForTimeInterval(0.1)
             camera.startTakingPicture(nil, progressHandler: nil, completionHandler: {
-            }, errorHandler: nil)
+                }, errorHandler: nil)
             NSThread.sleepForTimeInterval(1.0)
-            camera.stopTakingPicture(nil, completionHandler:  { info in {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.ButtonUpdate()
-                    }
-                }}, errorHandler: nil)
+            camera.stopTakingPicture(nil, completionHandler: nil, errorHandler: nil)
+            dispatch_async(dispatch_get_main_queue()) {
+                NSThread.sleepForTimeInterval(0.2)
+                self.ButtonUpdate()
+            }
         } else if (actionType.value == OLYCameraActionTypeMovie.value) {
             if (camera.recordingVideo) {
-                camera.stopRecordingVideo( { info in
-                    self.ButtonUpdate()
-                    }, errorHandler: nil)
+                if(!isClipsMovie) {
+                    camera.stopRecordingVideo( { info in
+                        self.ButtonUpdate()
+                        }, errorHandler: nil)
+                }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.Button.setEnabled(false)

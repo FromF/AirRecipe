@@ -71,7 +71,7 @@ func getImageFilename(index:NSInteger) ->String {
     case 1:
         filename = NSLocalizedString("CONTINUOUS_IMG",comment: "")
     case 2:
-        filename = NSLocalizedString("MOVIE_IMG",comment: "")
+        filename = NSLocalizedString("CLIPS_IMG",comment: "")
     case 3:
         filename = NSLocalizedString("HDR_IMG",comment: "")
     default:
