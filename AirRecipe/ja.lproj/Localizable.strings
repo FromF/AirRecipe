@@ -5,11 +5,21 @@
   Created by Fuji on 2015/05/27.
   Copyright (c) 2015年 FromF. All rights reserved.
 */
-SINGLE = "単写撮影\nAIR が自動的にシーンを判別しオートできれいに撮影します。";
-CONTINUOUS = "連写撮影\n10fps で1秒間連写撮影します。";
+SINGLE_TITLE = "単写撮影";
+SINGLE = "AIR が自動的にシーンを判別しオートできれいに撮影します。";
+
+CONTINUOUS_TITLE = "連写撮影";
+CONTINUOUS = "10fps で1秒間連写撮影します。";
+
+//MOVIE_TITLE = "";
 //MOVIE = "動画撮影\n動画（Full HD/30fps）で撮影します。";
-CLIPS = "クリップ撮影\nクリップ（ショート動画）を撮影します。\nクリップの録画時間はスタンドアロン設定を引き継ぎます。\n※ オリンパスの公式アプリ（OA.Clips）で、複数のクリップをつなぎ合わせて１つのショート動画を作成できます。";
-HDR = "HDRブラケット撮影\nHDR合成用の写真を以下の設定で３枚撮影します。\n-撮影モード：A(絞り優先)モード\n-露出補正：+2.0,0,-2.0\n※ ISO感度とホワイトバランスと画質モードはスタンドアロン設定を引き継ぎます。";
+
+CLIPS_TITLE = "クリップ撮影";
+CLIPS = "クリップ（ショート動画）を撮影します。\nクリップの録画時間はスタンドアロン設定を引き継ぎます。\n※ オリンパスの公式アプリ（OA.Clips）で、複数のクリップをつなぎ合わせて１つのショート動画を作成できます。";
+
+HDR_TITLE = "HDRブラケット撮影";
+HDR = "HDR合成用の写真を以下の設定で３枚撮影します。\n-撮影モード：A(絞り優先)モード\n-露出補正：+2.0,0,-2.0\n※ ISO感度とホワイトバランスと画質モードはスタンドアロン設定を引き継ぎます。";
+
 SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
 CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
 //MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";

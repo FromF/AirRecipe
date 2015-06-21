@@ -86,18 +86,36 @@ class ViewController: UIViewController , UIScrollViewDelegate {
 
     // MARK: - DetailTextViewUpdate
     func updateDetailTextView() {
+        var stringTitle:String = ""
+        var stringDetail:String = ""
+        
+        //各種設定に応じた説明文を選択
         switch(self.CatalogPageControl.currentPage) {
             case 0:
-                self.DetailTextView.text = NSLocalizedString("SINGLE",comment: "")
+                stringTitle  = NSLocalizedString("SINGLE_TITLE",comment: "")
+                stringDetail = NSLocalizedString("SINGLE",comment: "")
             case 1:
-                self.DetailTextView.text = NSLocalizedString("CONTINUOUS",comment: "")
+                stringTitle  = NSLocalizedString("CONTINUOUS_TITLE",comment: "")
+                stringDetail = NSLocalizedString("CONTINUOUS",comment: "")
             case 2:
-                self.DetailTextView.text = NSLocalizedString("CLIPS",comment: "")
+                stringTitle  = NSLocalizedString("CLIPS_TITLE",comment: "")
+                stringDetail = NSLocalizedString("CLIPS",comment: "")
             case 3:
-                self.DetailTextView.text = NSLocalizedString("HDR",comment: "")
+                stringTitle  = NSLocalizedString("HDR_TITLE",comment: "")
+                stringDetail = NSLocalizedString("HDR",comment: "")
             default:
                 self.DetailTextView.text = "---"
         }
+        //アンダーバー付き太字で文字を生成する
+        var attrStringTitle = NSAttributedString(string: stringTitle, attributes:[NSUnderlineStyleAttributeName : 1 , NSFontAttributeName:UIFont.boldSystemFontOfSize(12.0)])
+        //通常の文字を生成する
+        var attrStringDetail = NSAttributedString(string: "\n\(stringDetail)", attributes:[NSUnderlineStyleAttributeName : 0])
+        //生成した文字を結合する
+        var mutableAttributedString = NSMutableAttributedString()
+        mutableAttributedString.appendAttributedString(attrStringTitle)
+        mutableAttributedString.appendAttributedString(attrStringDetail)
+        //TextViewに結合した文字列をセットする
+        self.DetailTextView.attributedText = mutableAttributedString
     }
 }
 
