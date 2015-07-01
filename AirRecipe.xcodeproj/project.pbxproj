@@ -13,6 +13,12 @@
 		9D267E951B141E96002EFE1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E941B141E96002EFE1A /* Images.xcassets */; };
 		9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E961B141E96002EFE1A /* LaunchScreen.xib */; };
 		9D267EA41B141E96002EFE1A /* AirRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */; };
+		9D3E81261B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */; };
+		9D3E81271B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
+		9D3E81281B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */; };
+		9D3E81291B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
+		9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */; };
+		9D3E812D1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
 		9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */; };
 		9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */; };
 		9D8D90151B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
@@ -40,6 +46,9 @@
 		9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */; };
 		9D9F64651B34235D00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */; };
 		9D9F64661B34235E00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */; };
+		9DF8245F1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
+		9DF824601B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
+		9DF824621B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +100,10 @@
 		9D267E9D1B141E96002EFE1A /* AirRecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirRecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D267EA21B141E96002EFE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirRecipeTests.swift; sourceTree = "<group>"; };
+		9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_05Moon.jpg; path = Resouce/WatchImage/AirRecipeBGP_05Moon.jpg; sourceTree = "<group>"; };
+		9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/WatchImage/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
+		9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_05Moon.jpg; path = Resouce/Image/AirRecipeBGP_05Moon.jpg; sourceTree = "<group>"; };
+		9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/Image/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
 		9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_01iAuto.jpg; path = Resouce/Image/AirRecipeBGP_01iAuto.jpg; sourceTree = "<group>"; };
 		9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_02Burst.jpg; path = Resouce/Image/AirRecipeBGP_02Burst.jpg; sourceTree = "<group>"; };
 		9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_04HdrBkt.jpg; path = Resouce/Image/AirRecipeBGP_04HdrBkt.jpg; sourceTree = "<group>"; };
@@ -119,6 +132,8 @@
 		9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
 		9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/Image/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
 		9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/WatchImage/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
+		9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07Fireworks.jpg; path = Resouce/WatchImage/AirRecipeBGP_07Fireworks.jpg; sourceTree = "<group>"; };
+		9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07Fireworks.jpg; path = Resouce/Image/AirRecipeBGP_07Fireworks.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +243,9 @@
 				9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */,
 				9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */,
 				9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */,
+				9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */,
+				9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */,
+				9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -239,6 +257,9 @@
 				9D8D90241B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg */,
 				9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */,
 				9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */,
+				9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */,
+				9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */,
+				9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */,
 				9D8D90201B306F11003FB89C /* glanceicon.png */,
 			);
 			name = WatchImage;
@@ -423,9 +444,12 @@
 			files = (
 				9D9E08A81B161D3C00281F48 /* Localizable.strings in Resources */,
 				9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
+				9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */,
 				9D267E931B141E96002EFE1A /* Main.storyboard in Resources */,
 				9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
 				9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
+				9DF824621B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
+				9D3E812D1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
 				9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */,
 				9D267E951B141E96002EFE1A /* Images.xcassets in Resources */,
 				9D9E08A41B161D2100281F48 /* InfoPlist.strings in Resources */,
@@ -444,10 +468,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D3E81261B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */,
 				9D8D90211B306F11003FB89C /* glanceicon.png in Resources */,
 				9D9E08891B16048200281F48 /* Images.xcassets in Resources */,
 				9D8D90291B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
+				9D3E81271B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
 				9D8D90271B306FFB003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
+				9DF8245F1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
 				9D8D902D1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */,
 				9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */,
 				9D9F64651B34235D00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
@@ -458,10 +485,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D3E81281B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */,
 				9D8D90221B306F11003FB89C /* glanceicon.png in Resources */,
 				9D9E08951B16048200281F48 /* Interface.storyboard in Resources */,
 				9D8D902A1B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
+				9D3E81291B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
 				9D8D90281B306FFB003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
+				9DF824601B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
 				9D8D902E1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */,
 				9D9E08971B16048200281F48 /* Images.xcassets in Resources */,
 				9D9F64661B34235E00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
@@ -670,8 +700,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -679,7 +709,7 @@
 				INFOPLIST_FILE = AirRecipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "686f4bb8-de2c-4c34-a56c-261dbda90a8d";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -707,6 +737,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: OLYMPUS IMAGING CORP.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -743,13 +775,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
 				IBSC_MODULE = AirRecipe_WatchKit_Extension;
 				INFOPLIST_FILE = "AirRecipe WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a4326c98-1014-4727-bb52-30ad99780b3f";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -782,8 +814,8 @@
 		9D9E08A01B16048200281F48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Haruhito Fuji (5BJR2WYNRK)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -792,7 +824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87cf0a95-e9d0-4551-be87-a61314b96747";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/AirRecipe WatchKit Extension-Bridging-Header.h";
 			};

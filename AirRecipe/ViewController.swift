@@ -19,7 +19,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     var locationManager = CLLocationManager()
     //
     var CatalogImageViews:AnyObject!
-    let CatalogPageMax:NSInteger = 4
+    let CatalogPageMax:NSInteger = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +103,15 @@ class ViewController: UIViewController , UIScrollViewDelegate {
             case 3:
                 stringTitle  = NSLocalizedString("HDR_TITLE",comment: "")
                 stringDetail = NSLocalizedString("HDR",comment: "")
+            case 4:
+                stringTitle  = NSLocalizedString("MOON_TITLE",comment: "")
+                stringDetail = NSLocalizedString("MOON",comment: "")
+            case 5:
+                stringTitle  = NSLocalizedString("WATERFALL_TITLE",comment: "")
+                stringDetail = NSLocalizedString("WATERFALL",comment: "")
+            case 6:
+                stringTitle  = NSLocalizedString("FIREWORKS_TITLE",comment: "")
+                stringDetail = NSLocalizedString("FIREWORKS",comment: "")
             default:
                 self.DetailTextView.text = "---"
         }

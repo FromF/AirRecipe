@@ -25,3 +25,14 @@ CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
 //MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";
 CLIPS_IMG = "AirRecipeBGP_03Clip.jpg";
 HDR_IMG = "AirRecipeBGP_04HdrBkt.jpg";
+
+MOON_TITLE = "お月様モード";
+MOON = "シャッター速優先モード SS=1/640\n測光=ピンポイント（センター）\nS-AF（位置センター固定）\n\n※レンズをご使用ください。\n75-300mm\n40-150mm\n75mm";
+MOON_IMG = "AirRecipeBGP_05Moon.jpg";
+WATERFALL_TITLE = "シルキー滝モード";
+WATERFALL = "シャッター速優先モード SS=1s\nISO感度200\nS-AF\n\n※ND8フィルターをご使用ください。";
+WATERFALL_IMG = "AirRecipeBGP_06Waterfall.jpg";
+FIREWORKS_TITLE = "花火";
+FIREWORKS = "マニュアルモード SS=4s\nFno=11\nISO感度Low\nWB電球";
+FIREWORKS_IMG = "AirRecipeBGP_07Fireworks.jpg";
+

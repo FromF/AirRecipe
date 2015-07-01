@@ -74,6 +74,12 @@ func getImageFilename(index:NSInteger) ->String {
         filename = NSLocalizedString("CLIPS_IMG",comment: "")
     case 3:
         filename = NSLocalizedString("HDR_IMG",comment: "")
+    case 4:
+        filename = NSLocalizedString("MOON_IMG",comment: "")
+    case 5:
+        filename = NSLocalizedString("WATERFALL_IMG",comment: "")
+    case 6:
+        filename = NSLocalizedString("FIREWORKS_IMG",comment: "")
     default:
         filename = NSLocalizedString("SINGLE_IMG",comment: "")
     }
