@@ -19,6 +19,10 @@
 		9D3E81291B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
 		9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */; };
 		9D3E812D1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
+		9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF061B4417050049FA0B /* LiveViewController.swift */; };
+		9D3FCF0A1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
+		9D3FCF0B1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
+		9D3FCF0C1B4421230049FA0B /* ShootingSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D980D1F1B311D76005451E3 /* ShootingSequence.m */; };
 		9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */; };
 		9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */; };
 		9D8D90151B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
@@ -104,6 +108,9 @@
 		9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/WatchImage/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
 		9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_05Moon.jpg; path = Resouce/Image/AirRecipeBGP_05Moon.jpg; sourceTree = "<group>"; };
 		9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/Image/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
+		9D3FCF061B4417050049FA0B /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraKitWrapper.swift; sourceTree = "<group>"; };
 		9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_01iAuto.jpg; path = Resouce/Image/AirRecipeBGP_01iAuto.jpg; sourceTree = "<group>"; };
 		9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_02Burst.jpg; path = Resouce/Image/AirRecipeBGP_02Burst.jpg; sourceTree = "<group>"; };
 		9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_04HdrBkt.jpg; path = Resouce/Image/AirRecipeBGP_04HdrBkt.jpg; sourceTree = "<group>"; };
@@ -190,8 +197,11 @@
 		9D267E8A1B141E95002EFE1A /* AirRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */,
+				9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */,
 				9D267E8D1B141E95002EFE1A /* AppDelegate.swift */,
 				9D267E8F1B141E95002EFE1A /* ViewController.swift */,
+				9D3FCF061B4417050049FA0B /* LiveViewController.swift */,
 				9D267E911B141E96002EFE1A /* Main.storyboard */,
 				9D267E941B141E96002EFE1A /* Images.xcassets */,
 				9D267E961B141E96002EFE1A /* LaunchScreen.xib */,
@@ -506,7 +516,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D267E901B141E95002EFE1A /* ViewController.swift in Sources */,
+				9D3FCF0C1B4421230049FA0B /* ShootingSequence.m in Sources */,
+				9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */,
 				9D267E8E1B141E95002EFE1A /* AppDelegate.swift in Sources */,
+				9D3FCF0A1B441E280049FA0B /* CameraKitWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +538,7 @@
 				9D8D901D1B306900003FB89C /* NotificationController.swift in Sources */,
 				9D980D201B311D76005451E3 /* ShootingSequence.m in Sources */,
 				9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */,
+				9D3FCF0B1B441E280049FA0B /* CameraKitWrapper.swift in Sources */,
 				9D8D901E1B306903003FB89C /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,8 +704,10 @@
 				);
 				INFOPLIST_FILE = AirRecipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/AirRecipe-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -708,8 +724,10 @@
 				);
 				INFOPLIST_FILE = AirRecipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "686f4bb8-de2c-4c34-a56c-261dbda90a8d";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PRODUCT_NAME)/AirRecipe-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

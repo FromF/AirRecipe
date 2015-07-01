@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let defaults = NSUserDefaults.standardUserDefaults()
     let CatalogSelectNumber:String = "SelectNumber"
     let CatalogSlectImageName:String = "SlectImageName"
+    let NotificationWatchAppStared : NSString = "NotificationWatchAppStared"
 
+    class var sharedCamera : OLYCamera {
+        struct Static {
+            static let instance : OLYCamera = OLYCamera()
+        }
+        return Static.instance
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -47,10 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - watchkit request data
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        //WatchApp起動通知
+        NSNotificationCenter.defaultCenter().postNotificationName(self.NotificationWatchAppStared as String, object:self)
         //設定呼び出し
         let currentPage = defaults.objectForKey(CatalogSelectNumber) as! NSInteger
         let filename = getImageFilename(currentPage)
-        
         //応答
         var replyDictionary = [
             CatalogSelectNumber:"\(currentPage)",
