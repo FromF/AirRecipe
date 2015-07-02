@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LiveViewController: UIViewController ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate {
+class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , MBProgressHUDDelegate {
     
     //
     @IBOutlet weak var liveViewImage: UIImageView!
@@ -18,43 +19,77 @@ class LiveViewController: UIViewController ,OLYCameraLiveViewDelegate , OLYCamer
     //
     //AppDelegate instance
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    //CameraKitWrapper
     let cameraWrapper = CameraKitWrapper()
+    //MBProgressHUD
+    var hud: MBProgressHUD!
+    //CoreLocation Serivce
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //スリープ禁止
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        
+        //必要な通知周りを登録
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationApplicationBackground:", name: UIApplicationDidEnterBackgroundNotification , object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationWatchAppStared:", name: appDelegate.NotificationWatchAppStared as String, object: nil)
 
+        //CameraKitのインスタンス及び必要delegateを設定
         var camera = AppDelegate.sharedCamera
         camera.connectionDelegate = self;
         camera.liveViewDelegate = self
 
-        self.disconnectButton.enabled = false
-        self.shutterButton.enabled = false
+        //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
+        self.shutterButton.hidden = true
+        showHud("Connecting")
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let currentPage = self.appDelegate.defaults.objectForKey(self.appDelegate.CatalogSelectNumber) as! NSInteger
             self.cameraWrapper.connectOPC(currentPage, camera: camera)
             camera.changeLiveViewSize(OLYCameraLiveViewSizeVGA, error: nil)
             dispatch_async(dispatch_get_main_queue(), {
-                self.disconnectButton.enabled = true
-                self.shutterButton.enabled = true
-                if camera.actionType().value == OLYCameraActionTypeMovie.value {
-                    self.shutterButton.setTitle("REC", forState: UIControlState.Normal)
-                    self.shutterButton.setTitle("REC", forState: UIControlState.Selected)
-                    self.shutterButton.setTitle("REC", forState: UIControlState.Disabled)
+                if camera.connected {
+                    if camera.actionType().value == OLYCameraActionTypeMovie.value {
+                        //動画撮影モード時はRECと表示する
+                        self.shutterButton.setTitle("REC", forState: UIControlState.Normal)
+                        self.shutterButton.setTitle("REC", forState: UIControlState.Selected)
+                        self.shutterButton.setTitle("REC", forState: UIControlState.Disabled)
+                    }
+                    self.hideHud("Connected" , time:0.1)
+                } else {
+                    self.hideHud("Connect Error" , time:1.0)
                 }
             })
         })
+        
+        //CoreLocation Serivce
+        locationManager.delegate = self
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                locationManager.startUpdatingLocation()
+                break
+            default:
+                break
+            }
+        }
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        //スリープ許可
+        UIApplication.sharedApplication().idleTimerDisabled = false
+        
+        //AIRとの切断処理
         var camera = AppDelegate.sharedCamera
         cameraWrapper.disconnect(camera)
+        
+        //CoreLocation Serivce
+        locationManager.stopUpdatingLocation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,24 +126,61 @@ class LiveViewController: UIViewController ,OLYCameraLiveViewDelegate , OLYCamer
     
     // MARK: - ConnectionDelegate
     func camera(camera: OLYCamera!, disconnectedByError error: NSError!) {
-        //切断通知
+        //AIRとの接続が解除されたのでViewを閉じる
         println("OLYCamera Disconnected")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - MBProgressHUD
+    func showHud(message:String) {
+        hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.dimBackground = true
+        hud.labelText = message
+        hud.mode = MBProgressHUDMode.Indeterminate
+        hud.show(true)
+    }
+    
+    func hideHud(message:String , time:NSTimeInterval) {
+        hud.labelText = message
+        hud.delegate = self
+        hud.mode = MBProgressHUDMode.Text
+        hud.hide(true, afterDelay: time)
+    }
+    
+    func hudWasHidden(hud: MBProgressHUD!) {
+        var camera = AppDelegate.sharedCamera
+        if camera.connected {
+            //接続が完了したらボタンを押せるようにする
+            self.shutterButton.hidden = false
+        } else {
+            //Hudが閉じられた時にAIRと接続されていない場合にはViewを閉じる
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
     // MARK: - Notification
     func NotificationApplicationBackground(notification : NSNotification?) {
+        //バックグラウンドに遷移したのでAIRとの切断処理してViewを閉じる
         var camera = AppDelegate.sharedCamera
         cameraWrapper.disconnect(camera)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func NotificationWatchAppStared(notification : NSNotification?) {
+        //AppleWatch側が起動したのでAIRとの切断処理してViewを閉じる
         var camera = AppDelegate.sharedCamera
         cameraWrapper.disconnect(camera)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    //MARK:- CoreLocation
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        var camera = AppDelegate.sharedCamera
+        if camera.connected {
+            self.cameraWrapper.setGeoLocation(camera, location: newLocation)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -31,7 +31,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         CatalogScrollView.delegate = self
         
         // 位置情報へのアクセスを要求する
-        //locationManager.requestAlwaysAuthorization()  //GPS無効
+        locationManager.requestAlwaysAuthorization()  //GPS無効
     }
 
     override func didReceiveMemoryWarning() {

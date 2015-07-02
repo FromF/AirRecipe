@@ -39,7 +39,19 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     
     override init() {
         super.init()
+    }
+    
+    override func awakeWithContext(context: AnyObject?) {
+        super.awakeWithContext(context)
         
+        // Configure interface objects here.
+    }
+
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+        //接続処理
+        connectSequence()
         //CoreLocation Serivce
         locationManager.delegate = self
         if CLLocationManager.locationServicesEnabled() {
@@ -52,25 +64,14 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
             }
         }
     }
-    
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        
-        // Configure interface objects here.
-    }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-
-        connectSequence()
-    }
 
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-        
+        //切断処理
         disconnect()
+        //CoreLocation Serivce
+        locationManager.stopUpdatingLocation()
     }
 
     //MARK:- ButtonAction
@@ -190,9 +191,8 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     
     //MARK:- CoreLocation
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        let lat = newLocation.coordinate.latitude
-        let lng = newLocation.coordinate.longitude
-        let coordinate = CLLocationCoordinate2DMake(lat, lng)
-
+        if camera.connected {
+            self.cameraWrapper.setGeoLocation(camera, location: newLocation)
+        }
     }
 }
