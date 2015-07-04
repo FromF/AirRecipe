@@ -14,11 +14,8 @@
 		9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D267E961B141E96002EFE1A /* LaunchScreen.xib */; };
 		9D267EA41B141E96002EFE1A /* AirRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */; };
 		9D3E81261B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */; };
-		9D3E81271B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
 		9D3E81281B42E42000E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */; };
-		9D3E81291B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
 		9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */; };
-		9D3E812D1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */; };
 		9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF061B4417050049FA0B /* LiveViewController.swift */; };
 		9D3FCF0A1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
 		9D3FCF0B1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
@@ -36,6 +33,12 @@
 		9D8D902A1B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90241B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg */; };
 		9D8D902D1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
 		9D8D902E1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */; };
+		9D91EDA01B46E49E0078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91ED9E1B46E49E0078A51D /* AirRecipeBGP_06SilkyFall.jpg */; };
+		9D91EDA11B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91ED9F1B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg */; };
+		9D91EDA41B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91EDA21B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg */; };
+		9D91EDA51B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91EDA21B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg */; };
+		9D91EDA61B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91EDA31B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg */; };
+		9D91EDA71B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D91EDA31B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg */; };
 		9D9E08831B16048200281F48 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9E08821B16048200281F48 /* InterfaceController.swift */; };
 		9D9E08891B16048200281F48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E08881B16048200281F48 /* Images.xcassets */; };
 		9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 9D9E088C1B16048200281F48 /* AirRecipe WatchKit App.app */; };
@@ -49,9 +52,6 @@
 		9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */; };
 		9D9F64651B34235D00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */; };
 		9D9F64661B34235E00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */; };
-		9DF8245F1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
-		9DF824601B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
-		9DF824621B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,9 +104,7 @@
 		9D267EA21B141E96002EFE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D267EA31B141E96002EFE1A /* AirRecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirRecipeTests.swift; sourceTree = "<group>"; };
 		9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_05Moon.jpg; path = Resouce/WatchImage/AirRecipeBGP_05Moon.jpg; sourceTree = "<group>"; };
-		9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/WatchImage/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
 		9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_05Moon.jpg; path = Resouce/Image/AirRecipeBGP_05Moon.jpg; sourceTree = "<group>"; };
-		9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06Waterfall.jpg; path = Resouce/Image/AirRecipeBGP_06Waterfall.jpg; sourceTree = "<group>"; };
 		9D3FCF061B4417050049FA0B /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraKitWrapper.swift; sourceTree = "<group>"; };
@@ -119,6 +117,10 @@
 		9D8D90231B306FFB003FB89C /* AirRecipeBGP_01iAuto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_01iAuto.jpg; path = Resouce/WatchImage/AirRecipeBGP_01iAuto.jpg; sourceTree = "<group>"; };
 		9D8D90241B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_02Burst.jpg; path = Resouce/WatchImage/AirRecipeBGP_02Burst.jpg; sourceTree = "<group>"; };
 		9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_04HdrBkt.jpg; path = Resouce/WatchImage/AirRecipeBGP_04HdrBkt.jpg; sourceTree = "<group>"; };
+		9D91ED9E1B46E49E0078A51D /* AirRecipeBGP_06SilkyFall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06SilkyFall.jpg; path = Resouce/Image/AirRecipeBGP_06SilkyFall.jpg; sourceTree = "<group>"; };
+		9D91ED9F1B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07FireWorls.jpg; path = Resouce/Image/AirRecipeBGP_07FireWorls.jpg; sourceTree = "<group>"; };
+		9D91EDA21B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_06SilkyFall.jpg; path = Resouce/WatchImage/AirRecipeBGP_06SilkyFall.jpg; sourceTree = "<group>"; };
+		9D91EDA31B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07FireWorls.jpg; path = Resouce/WatchImage/AirRecipeBGP_07FireWorls.jpg; sourceTree = "<group>"; };
 		9D9E087D1B16048200281F48 /* AirRecipe WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AirRecipe WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9E08801B16048200281F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9E08811B16048200281F48 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -138,8 +140,6 @@
 		9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
 		9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/Image/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
 		9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/WatchImage/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
-		9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07Fireworks.jpg; path = Resouce/WatchImage/AirRecipeBGP_07Fireworks.jpg; sourceTree = "<group>"; };
-		9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_07Fireworks.jpg; path = Resouce/Image/AirRecipeBGP_07Fireworks.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,8 +255,8 @@
 				9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */,
 				9D8D900B1B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg */,
 				9D3E812A1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg */,
-				9D3E812B1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg */,
-				9DF824611B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg */,
+				9D91ED9E1B46E49E0078A51D /* AirRecipeBGP_06SilkyFall.jpg */,
+				9D91ED9F1B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -269,8 +269,8 @@
 				9D9F64611B34233E00F1B869 /* AirRecipeBGP_03Clip.jpg */,
 				9D8D90261B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg */,
 				9D3E81241B42E41400E367B8 /* AirRecipeBGP_05Moon.jpg */,
-				9D3E81251B42E41400E367B8 /* AirRecipeBGP_06Waterfall.jpg */,
-				9DF8245E1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg */,
+				9D91EDA21B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg */,
+				9D91EDA31B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg */,
 				9D8D90201B306F11003FB89C /* glanceicon.png */,
 			);
 			name = WatchImage;
@@ -454,12 +454,12 @@
 				9D9E08A81B161D3C00281F48 /* Localizable.strings in Resources */,
 				9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
 				9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */,
+				9D91EDA11B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */,
 				9D267E931B141E96002EFE1A /* Main.storyboard in Resources */,
 				9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
 				9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
-				9DF824621B44003B00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
-				9D3E812D1B42E42D00E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
 				9D267E981B141E96002EFE1A /* LaunchScreen.xib in Resources */,
+				9D91EDA01B46E49E0078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */,
 				9D267E951B141E96002EFE1A /* Images.xcassets in Resources */,
 				9D9E08A41B161D2100281F48 /* InfoPlist.strings in Resources */,
 				9D8D90151B303908003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */,
@@ -481,9 +481,9 @@
 				9D8D90211B306F11003FB89C /* glanceicon.png in Resources */,
 				9D9E08891B16048200281F48 /* Images.xcassets in Resources */,
 				9D8D90291B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
-				9D3E81271B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
+				9D91EDA41B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */,
+				9D91EDA61B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */,
 				9D8D90271B306FFB003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
-				9DF8245F1B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
 				9D8D902D1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */,
 				9D9E088D1B16048200281F48 /* AirRecipe WatchKit App.app in Resources */,
 				9D9F64651B34235D00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
@@ -498,9 +498,9 @@
 				9D8D90221B306F11003FB89C /* glanceicon.png in Resources */,
 				9D9E08951B16048200281F48 /* Interface.storyboard in Resources */,
 				9D8D902A1B306FFB003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
-				9D3E81291B42E42000E367B8 /* AirRecipeBGP_06Waterfall.jpg in Resources */,
+				9D91EDA51B46E5E10078A51D /* AirRecipeBGP_06SilkyFall.jpg in Resources */,
+				9D91EDA71B46E5E10078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */,
 				9D8D90281B306FFB003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,
-				9DF824601B44002D00550861 /* AirRecipeBGP_07Fireworks.jpg in Resources */,
 				9D8D902E1B306FFB003FB89C /* AirRecipeBGP_04HdrBkt.jpg in Resources */,
 				9D9E08971B16048200281F48 /* Images.xcassets in Resources */,
 				9D9F64661B34235E00F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
