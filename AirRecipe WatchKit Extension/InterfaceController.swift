@@ -54,6 +54,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
         connectSequence()
         //CoreLocation Serivce
         locationManager.delegate = self
+        locationManager.distanceFilter = 500.0
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .AuthorizedAlways, .AuthorizedWhenInUse:

@@ -16,6 +16,8 @@ class CameraKitWrapper: NSObject {
     var isHDRShooting : Bool = false
     //AF Point Center Flag
     var isAFPointCenter : Bool = false
+    //GeoTag
+    var nmea0183:NSMutableString = ""
     //CameraProperty
     var propertyDictionary = [
         "TAKEMODE":"<TAKEMODE/iAuto>",
@@ -113,6 +115,11 @@ class CameraKitWrapper: NSObject {
         }
         if ((result) && (camera.connected)) {
             result = camera.startLiveView(nil)
+        }
+        if ((result) && (camera.connected)) {
+            if (nmea0183 != "") {
+                result = camera.setGeolocation(nmea0183 as String, error: nil)
+            }
         }
     }
     
@@ -319,12 +326,20 @@ class CameraKitWrapper: NSObject {
         nmea0183GPRMC.appendFormat("%02lX",nmea0183GPRMCChecksum)     // チェックサム
         
         // カメラに位置情報を設定します。
-        var nmea0183:NSMutableString = ""
-        nmea0183.appendFormat("%@\n%@\n", nmea0183GPGGA, nmea0183GPRMC)
+        var nmea0183New:NSMutableString = ""
+        nmea0183New.appendFormat("%@\n%@\n", nmea0183GPGGA, nmea0183GPRMC)
         
-        println(nmea0183)
-        
-        camera.setGeolocation(nmea0183 as String, error: nil)
+        println(nmea0183New)
+        if (nmea0183 == nmea0183New) {
+            println("Same Location")
+        } else {
+            nmea0183 = nmea0183New
+            if (camera.connected) {
+                camera.setGeolocation(self.nmea0183 as String, error: nil)
+            } else {
+                println("Not Connected")
+            }
+        }
     }
 
     func convertCLLocationDegreesToNmea(degrees:CLLocationDegrees) ->Double {

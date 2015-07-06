@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Clc-Uw-PSg"/>
                                     <constraint firstAttribute="width" constant="86" id="uuf-h2-5ju"/>
                                 </constraints>
-                                <state key="normal" image="BtnConnectAIR">
+                                <state key="normal" image="ar_icn_shoot">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -40,7 +40,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="agN-cl-SUx" kind="modal" id="ypw-8M-Qvt"/>
+                                    <segue destination="agN-cl-SUx" kind="presentation" id="ypw-8M-Qvt"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qD-Zc-TNJ">
@@ -99,14 +99,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-Dr-zTT">
-                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-Dr-zTT">
+                                <rect key="frame" x="0.0" y="20" width="600" height="40"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.76470588240000004" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3tG-aH-aTR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="DISCONNECT">
+                                <state key="normal" image="ar_icn_recipe">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -118,22 +117,30 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQk-7j-enq">
-                                <rect key="frame" x="0.0" y="20" width="600" height="540"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-ed-7nH">
-                                <rect key="frame" x="250" y="500" width="100" height="50"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.76470588240000004" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sp-ed-7nH">
+                                <rect key="frame" x="267" y="524" width="66" height="66"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="1Bc-3G-sC0"/>
+                                    <constraint firstAttribute="width" constant="66" id="CB2-TQ-0aU"/>
                                     <constraint firstAttribute="width" constant="100" id="qkj-aB-rhf"/>
                                     <constraint firstAttribute="height" constant="50" id="vuM-bA-AKZ"/>
                                 </constraints>
-                                <state key="normal" title="SHUTTER">
+                                <state key="normal" image="rp_shutter_btn_camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled">
                                     <color key="titleColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qkj-aB-rhf"/>
+                                        <exclude reference="vuM-bA-AKZ"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="shutterButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="63k-FA-e0e"/>
                                 </connections>
@@ -141,16 +148,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="SQk-7j-enq" secondAttribute="bottom" id="08y-py-gC9"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="4Ge-Bf-NfA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SQk-7j-enq" secondAttribute="trailing" constant="-16" id="61f-e8-jot"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="AEi-X8-ys9"/>
-                            <constraint firstItem="vvz-Dr-zTT" firstAttribute="top" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="D8v-O3-z5S"/>
+                            <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="CsP-O3-Rd8"/>
+                            <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="D8v-O3-z5S"/>
+                            <constraint firstItem="vvz-Dr-zTT" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="SzG-Dx-eGR"/>
+                            <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="UAA-dm-QD3"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="akF-7r-eNb"/>
-                            <constraint firstItem="vvz-Dr-zTT" firstAttribute="top" secondItem="SQk-7j-enq" secondAttribute="bottom" id="eFk-xq-2NY"/>
+                            <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="SQk-7j-enq" secondAttribute="bottom" id="eFk-xq-2NY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvz-Dr-zTT" secondAttribute="trailing" constant="-16" id="pdi-en-ViJ"/>
                             <constraint firstAttribute="centerX" secondItem="3Sp-ed-7nH" secondAttribute="centerX" id="t28-8w-i93"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="wNB-4N-Ww6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="D8v-O3-z5S"/>
+                                <exclude reference="eFk-xq-2NY"/>
+                                <exclude reference="wNB-4N-Ww6"/>
+                                <exclude reference="akF-7r-eNb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="disconnectButton" destination="vvz-Dr-zTT" id="cTb-BI-Rb0"/>
@@ -164,6 +183,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BtnConnectAIR" width="40" height="40"/>
+        <image name="ar_icn_recipe" width="40" height="40"/>
+        <image name="ar_icn_shoot" width="40" height="40"/>
+        <image name="rp_shutter_btn_camera" width="66" height="66"/>
     </resources>
 </document>

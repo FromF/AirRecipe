@@ -51,7 +51,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         for (var i:CGFloat = 0;i < CGFloat(CatalogPageMax) ; i++) {
             var subContentView:UIImageView = UIImageView(frame: CGRectMake( CatalogScrollViewWith * i, 0, CatalogScrollViewWith, CatalogScrollViewHeight))
             
-            var filename = getImageFilename(NSInteger(i))
+            var filename = getImageFilename(NSInteger(i))  + ".jpg"
             subContentView.image = UIImage(named: filename)
             subContentView.backgroundColor = UIColor.grayColor()
             subContentView.contentMode = UIViewContentMode.ScaleAspectFill

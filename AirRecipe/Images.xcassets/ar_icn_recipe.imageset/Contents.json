@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "ar_icn_recipe.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "BtnConnectAIR.png"
+      "filename" : "ar_icn_recipe@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "ar_icn_recipe@3x.png"
     }
   ],
   "info" : {

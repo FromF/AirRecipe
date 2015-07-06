@@ -34,7 +34,7 @@ class GlanceController: WKInterfaceController {
                 var relyInfokeys = Array(replyInfo.keys)
                 for relyInfokey in relyInfokeys {
                     if relyInfokey == self.CatalogSlectImageName {
-                        let imagename:String = replyInfo["\(relyInfokey)"] as! String
+                        let imagename:String = replyInfo["\(relyInfokey)"] as! String + "_Watch.jpg"
                         self.imageView.setImage(UIImage(named: imagename))
                     }
                 }

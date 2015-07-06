@@ -9,7 +9,7 @@ SINGLE_TITLE = "単写撮影";
 SINGLE = "AIR が自動的にシーンを判別しオートできれいに撮影します。";
 
 CONTINUOUS_TITLE = "連写撮影";
-CONTINUOUS = "10fps で1秒間連写撮影します。";
+CONTINUOUS = "1秒間に10枚の連続撮影します。\n被写体の連続した動きや動きの中の一瞬を撮影することができます。";
 
 //MOVIE_TITLE = "";
 //MOVIE = "動画撮影\n動画（Full HD/30fps）で撮影します。";
@@ -20,18 +20,19 @@ CLIPS = "クリップ（ショート動画）を撮影します。\nクリップ
 HDR_TITLE = "HDRブラケット撮影";
 HDR = "HDR合成用の写真を以下の設定で３枚撮影します。\n-撮影モード：A(絞り優先)モード\n-露出補正：+2.0,0,-2.0\n※ ISO感度とホワイトバランスと画質モードはスタンドアロン設定を引き継ぎます。";
 
-SINGLE_IMG = "AirRecipeBGP_01iAuto.jpg";
-CONTINUOUS_IMG = "AirRecipeBGP_02Burst.jpg";
-//MOVIE_IMG = "AirRecipeBGP_03Movie.jpg";
-CLIPS_IMG = "AirRecipeBGP_03Clip.jpg";
-HDR_IMG = "AirRecipeBGP_04HdrBkt.jpg";
+SINGLE_IMG = "AirRecipeBGP_01iAuto";
+CONTINUOUS_IMG = "AirRecipeBGP_02Burst";
+//MOVIE_IMG = "AirRecipeBGP_03Movie";
+CLIPS_IMG = "AirRecipeBGP_03Clip";
+HDR_IMG = "AirRecipeBGP_04HdrBkt";
 
 MOON_TITLE = "お月さま撮影";
-MOON = "お月さまをキレイに撮影できます。\nライブビューの真ん中にお月さまを配置してから撮影します。\n\n※焦点距離が150mm以上の望遠レンズの使用をお勧めします。";
-MOON_IMG = "AirRecipeBGP_05Moon.jpg";
+MOON = "お月さまをキレイに撮影できます。\nAIR A01 を三脚などに固定し、お月さまをライブビューの真ん中に配置して撮影します。\n\n※ 焦点距離が 150mm 以上の望遠レンズの使用をお勧めします。";
+MOON_IMG = "AirRecipeBGP_05Moon";
 WATERFALL_TITLE = "シルキー滝撮影";
-WATERFALL = "滝の水の流れをシルキーに表現するスローシャッターで撮影します。\n\n※ND8フィルターをレンズに装備して撮影をお勧めします。";
-WATERFALL_IMG = "AirRecipeBGP_06SilkyFall.jpg";
+WATERFALL = "滝の水の流れをシルキーに表現するスローシャッターで撮影できます。\nAIR A01 を三脚などに固定して撮影します。\n\n※ ND8 フィルターをレンズに装着しての撮影をお勧めします。";
+WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";
 FIREWORKS_TITLE = "打ち上げ花火撮影";
-FIREWORKS = "打ち上げ花火をダイナミックに表現するスローシャッターで撮影できます。\nAIR A01を三脚などに固定して撮影して下さい。";
-FIREWORKS_IMG = "AirRecipeBGP_07FireWorls.jpg";
+FIREWORKS = "打ち上げ花火をダイナミックに表現するスローシャッターで撮影できます。\nAIR A01 を三脚などに固定して撮影します。
+";
+FIREWORKS_IMG = "AirRecipeBGP_07FireWorls";

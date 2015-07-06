@@ -54,9 +54,9 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
                 if camera.connected {
                     if camera.actionType().value == OLYCameraActionTypeMovie.value {
                         //動画撮影モード時はRECと表示する
-                        self.shutterButton.setTitle("REC", forState: UIControlState.Normal)
-                        self.shutterButton.setTitle("REC", forState: UIControlState.Selected)
-                        self.shutterButton.setTitle("REC", forState: UIControlState.Disabled)
+                        self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Normal)
+                        //self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Selected)
+                        //self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Disabled)
                     }
                     self.hideHud("Connected" , time:0.1)
                 } else {
@@ -67,6 +67,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         
         //CoreLocation Serivce
         locationManager.delegate = self
+        locationManager.distanceFilter = 500.0
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .AuthorizedAlways, .AuthorizedWhenInUse:
@@ -176,9 +177,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     //MARK:- CoreLocation
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
         var camera = AppDelegate.sharedCamera
-        if camera.connected {
-            self.cameraWrapper.setGeoLocation(camera, location: newLocation)
-        }
+        self.cameraWrapper.setGeoLocation(camera, location: newLocation)
     }
     
     /*
