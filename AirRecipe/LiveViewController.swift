@@ -44,7 +44,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
 
         //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
         self.shutterButton.hidden = true
-        showHud("Connecting")
+        showHud(NSLocalizedString("CONNECTING",comment: ""))
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let currentPage = self.appDelegate.defaults.objectForKey(self.appDelegate.CatalogSelectNumber) as! NSInteger
@@ -55,12 +55,10 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
                     if camera.actionType().value == OLYCameraActionTypeMovie.value {
                         //動画撮影モード時はRECと表示する
                         self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Normal)
-                        //self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Selected)
-                        //self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Disabled)
                     }
-                    self.hideHud("Connected" , time:0.1)
+                    self.hideHud(NSLocalizedString("CONNECTCOMPLETE",comment: "") , time:0.1)
                 } else {
-                    self.hideHud("Connect Error" , time:1.0)
+                    self.hideHud(NSLocalizedString("CONNECTFAIL",comment: "") , time:1.0)
                 }
             })
         })

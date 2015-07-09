@@ -149,7 +149,7 @@ class CameraKitWrapper: NSObject {
                     case 0:
                         camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/+2.0>", error: nil)
                     case 1:
-                        camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/+0.0>", error: nil)
+                        camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/0.0>", error: nil)
                     case 2:
                         camera.setCameraPropertyValue("EXPREV", value: "<EXPREV/-2.0>", error: nil)
                     default:
