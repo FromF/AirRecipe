@@ -183,8 +183,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ar_icn_recipe" width="40" height="40"/>
-        <image name="ar_icn_shoot" width="40" height="40"/>
+        <image name="ar_icn_recipe" width="80" height="40"/>
+        <image name="ar_icn_shoot" width="80" height="40"/>
         <image name="rp_shutter_btn_camera" width="66" height="66"/>
     </resources>
 </document>
