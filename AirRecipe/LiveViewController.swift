@@ -9,12 +9,14 @@
 import UIKit
 import CoreLocation
 
-class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , MBProgressHUDDelegate {
+class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , OLYCameraPropertyDelegate , MBProgressHUDDelegate {
     
     //
     @IBOutlet weak var liveViewImage: UIImageView!
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var disconnectButton: UIButton!
+    @IBOutlet weak var batteryLevelImage: UIImageView!
+    @IBOutlet weak var mediaRemainLabel: UILabel!
     
     //
     //AppDelegate instance
@@ -25,6 +27,19 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     var hud: MBProgressHUD!
     //CoreLocation Serivce
     var locationManager = CLLocationManager()
+    //BatteryLevelMeter
+    let batteryIconList = [
+        "<BATTERY_LEVEL/UNKNOWN>": "lv_battery_01",
+        "<BATTERY_LEVEL/CHARGE>": "lv_battery_01",
+        "<BATTERY_LEVEL/EMPTY>": "lv_battery_01",
+        "<BATTERY_LEVEL/WARNING>": "lv_battery_01",
+        "<BATTERY_LEVEL/LOW>": "lv_battery_02",
+        "<BATTERY_LEVEL/FULL>": "lv_battery_03",
+        "<BATTERY_LEVEL/EMPTY_AC>": "lv_battery_01",
+        "<BATTERY_LEVEL/SUPPLY_WARNING>": "lv_battery_01",
+        "<BATTERY_LEVEL/SUPPLY_LOW>": "lv_battery_02",
+        "<BATTERY_LEVEL/SUPPLY_FULL>": "lv_battery_03",
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +54,15 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
 
         //CameraKitのインスタンス及び必要delegateを設定
         var camera = AppDelegate.sharedCamera
-        camera.connectionDelegate = self;
+        camera.connectionDelegate = self
         camera.liveViewDelegate = self
+        camera.cameraPropertyDelegate = self
+        camera.addObserver(self, forKeyPath: "remainingImageCapacity", options: nil, context: nil)
 
         //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
-        self.shutterButton.hidden = true
+        shutterButton.hidden = true
+        batteryLevelImage.hidden = true
+        mediaRemainLabel.hidden = true
         showHud(NSLocalizedString("CONNECTING",comment: ""))
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -85,7 +104,10 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         
         //AIRとの切断処理
         var camera = AppDelegate.sharedCamera
-        cameraWrapper.disconnect(camera)
+        if camera.connected {
+            cameraWrapper.disconnect(camera)
+        }
+        camera.removeObserver(self, forKeyPath: "remainingImageCapacity")
         
         //CoreLocation Serivce
         locationManager.stopUpdatingLocation()
@@ -110,6 +132,8 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             dispatch_async(dispatch_get_main_queue(), {
                 self.shutterButton.enabled = true
             })
+            NSThread.sleepForTimeInterval(0.5)
+            self.updateCameraMediaRemain()
         })
     }
     
@@ -128,6 +152,13 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         //AIRとの接続が解除されたのでViewを閉じる
         println("OLYCamera Disconnected")
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - cameraPropertyDelegate
+    func camera(camera: OLYCamera!, didChangeCameraProperty name: String!) {
+        if name == "BATTERY_LEVEL" {
+            updateCameraStatus()
+        }
     }
     
     // MARK: - MBProgressHUD
@@ -151,10 +182,41 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         if camera.connected {
             //接続が完了したらボタンを押せるようにする
             self.shutterButton.hidden = false
+            self.batteryLevelImage.hidden = false
+            self.mediaRemainLabel.hidden = false
+            updateCameraStatus()
         } else {
             //Hudが閉じられた時にAIRと接続されていない場合にはViewを閉じる
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    // MARK: - Status Display
+    func updateCameraStatus() {
+        var camera = AppDelegate.sharedCamera
+        //BATTERY_LEVEL
+        let battery = camera.cameraPropertyValue("BATTERY_LEVEL", error: nil) as String!
+        if (battery != nil) {
+            let iconImageName : String! = batteryIconList[battery]
+            batteryLevelImage.image = UIImage(named: iconImageName)
+        }
+        updateCameraMediaRemain()
+    }
+    
+    func updateCameraMediaRemain() {
+        dispatch_async(dispatch_get_main_queue(), {
+            var camera = AppDelegate.sharedCamera
+            if camera.actionType().value == OLYCameraActionTypeMovie.value {
+                if !camera.recordingVideo {
+                    let second = NSInteger(camera.remainingVideoCapacity % 60)
+                    let hour = NSInteger(camera.remainingVideoCapacity / (60 * 60))
+                    let min = NSInteger((NSInteger(camera.remainingVideoCapacity) - (hour * 60 * 60) - (second)) / 60)
+                    self.mediaRemainLabel.text = NSString(format: "%02d:%02d:%02d", hour,min,second) as String
+                }
+            } else {
+                self.mediaRemainLabel.text = "\(camera.remainingImageCapacity)"
+            }
+        })
     }
     
     // MARK: - Notification
@@ -170,6 +232,14 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         var camera = AppDelegate.sharedCamera
         cameraWrapper.disconnect(camera)
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        
+        if keyPath == "remainingImageCapacity" || keyPath == "remainingVideoCapacity" {
+            updateCameraMediaRemain()
+        }
+        
     }
 
     //MARK:- CoreLocation

@@ -71,6 +71,15 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         updateDetailTextView()
     }
     
+    // MARK: - Button Action
+    @IBAction func openBlogButtonAction(sender: AnyObject) {
+        let url = NSURL(string: "http://ameblo.jp/ux-t298/theme-10091245629.html")
+        if UIApplication.sharedApplication().canOpenURL(url!){
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
+    
+    
     // MARK: - ScrollView Delegate
     func scrollViewDidScroll(scrollview: UIScrollView) {
         //println("framesize = \(self.CatalogScrollView.frame.size) contentOffset = \(self.CatalogScrollView.contentOffset)")

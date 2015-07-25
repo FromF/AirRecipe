@@ -53,6 +53,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRD-oD-HNy">
+                                <rect key="frame" x="16" y="28" width="22" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openBlogButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="len-NU-7gH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -60,6 +70,7 @@
                             <constraint firstItem="6yr-8w-ED1" firstAttribute="top" secondItem="1qD-Zc-TNJ" secondAttribute="bottom" constant="2" id="C0H-UG-xts"/>
                             <constraint firstAttribute="bottomMargin" secondItem="6yr-8w-ED1" secondAttribute="bottom" id="DAR-Uz-Mbg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1qD-Zc-TNJ" secondAttribute="bottom" constant="40" id="J4d-2a-X3u"/>
+                            <constraint firstItem="ZRD-oD-HNy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Jj3-km-Dge"/>
                             <constraint firstItem="1qD-Zc-TNJ" firstAttribute="top" secondItem="lCO-fm-tas" secondAttribute="bottom" id="LZw-9d-xQG"/>
                             <constraint firstItem="1qD-Zc-TNJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Mcx-ZD-vaz"/>
                             <constraint firstItem="6yr-8w-ED1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Udw-iB-bpa"/>
@@ -68,11 +79,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8Wm-M3-atv" secondAttribute="trailing" constant="-16" id="iJk-Zh-Wyg"/>
                             <constraint firstItem="8Wm-M3-atv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mJ9-AA-XdJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6yr-8w-ED1" secondAttribute="trailing" constant="-16" id="qnX-dP-I0u"/>
+                            <constraint firstItem="ZRD-oD-HNy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rMl-xy-dNf"/>
                             <constraint firstItem="1qD-Zc-TNJ" firstAttribute="top" secondItem="8Wm-M3-atv" secondAttribute="bottom" id="uqw-Pm-Wk1"/>
                             <constraint firstItem="8Wm-M3-atv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wJY-xw-TGW"/>
+                            <constraint firstItem="ZRD-oD-HNy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="x3q-03-XT0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Jj3-km-Dge"/>
                                 <exclude reference="dgN-i8-4Ye"/>
                                 <exclude reference="J4d-2a-X3u"/>
                             </mask>
@@ -145,19 +159,41 @@
                                     <action selector="shutterButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="63k-FA-e0e"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lv_battery_03" translatesAutoresizingMaskIntoConstraints="NO" id="inE-3n-opd">
+                                <rect key="frame" x="567" y="68" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="0oC-BE-Q42"/>
+                                    <constraint firstAttribute="width" constant="25" id="rNs-Vb-nhQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezj-8v-ahp">
+                                <rect key="frame" x="494" y="70" width="65" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="E7Y-ei-8GW"/>
+                                    <constraint firstAttribute="height" constant="21" id="UOK-Mi-woX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="SQk-7j-enq" secondAttribute="bottom" id="08y-py-gC9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="inE-3n-opd" secondAttribute="trailing" constant="-8" id="0Sc-Sr-N7M"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="4Ge-Bf-NfA"/>
+                            <constraint firstItem="inE-3n-opd" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" constant="-16" id="5tx-3K-Yka"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SQk-7j-enq" secondAttribute="trailing" constant="-16" id="61f-e8-jot"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="AEi-X8-ys9"/>
+                            <constraint firstItem="Ezj-8v-ahp" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" constant="10" id="CAs-ny-kBq"/>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="CsP-O3-Rd8"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="D8v-O3-z5S"/>
+                            <constraint firstItem="inE-3n-opd" firstAttribute="leading" secondItem="Ezj-8v-ahp" secondAttribute="trailing" constant="8" id="LGg-Cx-hlQ"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="SzG-Dx-eGR"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="UAA-dm-QD3"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="akF-7r-eNb"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="SQk-7j-enq" secondAttribute="bottom" id="eFk-xq-2NY"/>
+                            <constraint firstItem="inE-3n-opd" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" constant="8" id="fsH-jd-iyN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvz-Dr-zTT" secondAttribute="trailing" constant="-16" id="pdi-en-ViJ"/>
                             <constraint firstAttribute="centerX" secondItem="3Sp-ed-7nH" secondAttribute="centerX" id="t28-8w-i93"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="wNB-4N-Ww6"/>
@@ -168,12 +204,15 @@
                                 <exclude reference="eFk-xq-2NY"/>
                                 <exclude reference="wNB-4N-Ww6"/>
                                 <exclude reference="akF-7r-eNb"/>
+                                <exclude reference="5tx-3K-Yka"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="batteryLevelImage" destination="inE-3n-opd" id="H5O-ug-YDd"/>
                         <outlet property="disconnectButton" destination="vvz-Dr-zTT" id="cTb-BI-Rb0"/>
                         <outlet property="liveViewImage" destination="SQk-7j-enq" id="vpm-Tu-qGw"/>
+                        <outlet property="mediaRemainLabel" destination="Ezj-8v-ahp" id="77S-Gv-PF1"/>
                         <outlet property="shutterButton" destination="3Sp-ed-7nH" id="MJK-sC-Eb4"/>
                     </connections>
                 </viewController>
@@ -185,6 +224,7 @@
     <resources>
         <image name="ar_icn_recipe" width="80" height="40"/>
         <image name="ar_icn_shoot" width="80" height="40"/>
+        <image name="lv_battery_03" width="25" height="25"/>
         <image name="rp_shutter_btn_camera" width="66" height="66"/>
     </resources>
 </document>
