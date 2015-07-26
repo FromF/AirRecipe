@@ -79,6 +79,7 @@ class CameraKitWrapper: NSObject {
                     "AE":"<AE/AE_PINPOINT>",
                     //"FOCUS_STILL":"<FOCUS_STILL/FOCUS_SAF>",
                     "RECVIEW":"<RECVIEW/OFF>",
+                    "EXPREV":"<EXPREV/-0.3>",
                 ]
                 self.isAFPointCenter = true    //基本はAF位置がセンター
                 
