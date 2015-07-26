@@ -176,6 +176,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvm-zO-dsv">
+                                <rect key="frame" x="544" y="540" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="B8h-g6-em7"/>
+                                    <constraint firstAttribute="height" constant="40" id="NE8-JQ-BtA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="🔎">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digitalTeleconButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="Bqi-wc-fCq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -184,6 +198,7 @@
                             <constraint firstItem="SQk-7j-enq" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="4Ge-Bf-NfA"/>
                             <constraint firstItem="inE-3n-opd" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" constant="-16" id="5tx-3K-Yka"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SQk-7j-enq" secondAttribute="trailing" constant="-16" id="61f-e8-jot"/>
+                            <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="Mvm-zO-dsv" secondAttribute="bottom" constant="20" id="9n2-RB-rvo"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="AEi-X8-ys9"/>
                             <constraint firstItem="Ezj-8v-ahp" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" constant="10" id="CAs-ny-kBq"/>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="CsP-O3-Rd8"/>
@@ -197,6 +212,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="vvz-Dr-zTT" secondAttribute="trailing" constant="-16" id="pdi-en-ViJ"/>
                             <constraint firstAttribute="centerX" secondItem="3Sp-ed-7nH" secondAttribute="centerX" id="t28-8w-i93"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="wNB-4N-Ww6"/>
+                            <constraint firstItem="Mvm-zO-dsv" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" id="xYa-eB-D8z"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -210,6 +226,7 @@
                     </view>
                     <connections>
                         <outlet property="batteryLevelImage" destination="inE-3n-opd" id="H5O-ug-YDd"/>
+                        <outlet property="digitalTeleconButton" destination="Mvm-zO-dsv" id="Ye5-gA-duC"/>
                         <outlet property="disconnectButton" destination="vvz-Dr-zTT" id="cTb-BI-Rb0"/>
                         <outlet property="liveViewImage" destination="SQk-7j-enq" id="vpm-Tu-qGw"/>
                         <outlet property="mediaRemainLabel" destination="Ezj-8v-ahp" id="77S-Gv-PF1"/>

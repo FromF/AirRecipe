@@ -17,6 +17,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     @IBOutlet weak var disconnectButton: UIButton!
     @IBOutlet weak var batteryLevelImage: UIImageView!
     @IBOutlet weak var mediaRemainLabel: UILabel!
+    @IBOutlet weak var digitalTeleconButton: UIButton!
     
     //
     //AppDelegate instance
@@ -40,6 +41,9 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         "<BATTERY_LEVEL/SUPPLY_LOW>": "lv_battery_02",
         "<BATTERY_LEVEL/SUPPLY_FULL>": "lv_battery_03",
     ]
+    //DigitalZoomList
+    let digitalZoomList:[Float] = [ 1.0 , 2.0 , 3.0]
+    var digitalZoomValue:Float = 1.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +67,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         shutterButton.hidden = true
         batteryLevelImage.hidden = true
         mediaRemainLabel.hidden = true
+        digitalTeleconButton.hidden = true
         showHud(NSLocalizedString("CONNECTING",comment: ""))
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -141,6 +146,28 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func digitalTeleconButtonAction(sender: AnyObject) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            var camera = AppDelegate.sharedCamera
+            let digitalzoomrange = camera.digitalZoomScaleRange(nil)
+            for var i = 0 ; i < self.digitalZoomList.count ; i++ {
+                if self.digitalZoomValue == self.digitalZoomList[i]  {
+                    if i == (self.digitalZoomList.count - 1) {
+                        self.digitalZoomValue = self.digitalZoomList[0]
+                    } else {
+                        self.digitalZoomValue = self.digitalZoomList[i+1]
+                    }
+                    break
+                }
+            }
+            if (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMinimumKey]?.floatValue <= self.digitalZoomValue) ||
+               (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMaximumKey]?.floatValue >= self.digitalZoomValue) {
+                    camera.changeDigitalZoomScale(self.digitalZoomValue, error: nil)
+            }
+            
+        })
+    }
+    
     // MARK: - LiveView Update
     func camera(camera: OLYCamera!, didUpdateLiveView data: NSData!, metadata: [NSObject : AnyObject]!) {
         var image : UIImage = OLYCameraConvertDataToImage(data,metadata)
@@ -184,6 +211,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             self.shutterButton.hidden = false
             self.batteryLevelImage.hidden = false
             self.mediaRemainLabel.hidden = false
+            digitalTeleconButton.hidden = false
             updateCameraStatus()
         } else {
             //Hudが閉じられた時にAIRと接続されていない場合にはViewを閉じる
