@@ -44,6 +44,8 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     //DigitalZoomList
     let digitalZoomList:[Float] = [ 1.0 , 2.0 , 3.0]
     var digitalZoomValue:Float = 1.0
+    //Debug Mode
+    let debugMode = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,30 +64,32 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         camera.liveViewDelegate = self
         camera.cameraPropertyDelegate = self
         camera.addObserver(self, forKeyPath: "remainingImageCapacity", options: nil, context: nil)
-
-        //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
-        shutterButton.hidden = true
-        batteryLevelImage.hidden = true
-        mediaRemainLabel.hidden = true
-        digitalTeleconButton.hidden = true
-        showHud(NSLocalizedString("CONNECTING",comment: ""))
-
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            let currentPage = self.appDelegate.defaults.objectForKey(self.appDelegate.CatalogSelectNumber) as! NSInteger
-            self.cameraWrapper.connectOPC(currentPage, camera: camera)
-            camera.changeLiveViewSize(OLYCameraLiveViewSizeVGA, error: nil)
-            dispatch_async(dispatch_get_main_queue(), {
-                if camera.connected {
-                    if camera.actionType().value == OLYCameraActionTypeMovie.value {
-                        //動画撮影モード時はRECと表示する
-                        self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Normal)
+        
+        if !debugMode {
+            //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
+            shutterButton.hidden = true
+            batteryLevelImage.hidden = true
+            mediaRemainLabel.hidden = true
+            digitalTeleconButton.hidden = true
+            showHud(NSLocalizedString("CONNECTING",comment: ""))
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                let currentPage = self.appDelegate.defaults.objectForKey(self.appDelegate.CatalogSelectNumber) as! NSInteger
+                self.cameraWrapper.connectOPC(currentPage, camera: camera)
+                camera.changeLiveViewSize(OLYCameraLiveViewSizeVGA, error: nil)
+                dispatch_async(dispatch_get_main_queue(), {
+                    if camera.connected {
+                        if camera.actionType().value == OLYCameraActionTypeMovie.value {
+                            //動画撮影モード時はRECと表示する
+                            self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Normal)
+                        }
+                        self.hideHud(NSLocalizedString("CONNECTCOMPLETE",comment: "") , time:0.1)
+                    } else {
+                        self.hideHud(NSLocalizedString("CONNECTFAIL",comment: "") , time:1.0)
                     }
-                    self.hideHud(NSLocalizedString("CONNECTCOMPLETE",comment: "") , time:0.1)
-                } else {
-                    self.hideHud(NSLocalizedString("CONNECTFAIL",comment: "") , time:1.0)
-                }
+                })
             })
-        })
+        }
         
         //CoreLocation Serivce
         locationManager.delegate = self
@@ -123,12 +127,22 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         // Dispose of any resources that can be recreated.
     }
     
-
+    // MARK: - Rotate Support
+    //サポートするデバイスの向きを指定する
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.All.rawValue)
+    }
+    //指定方向に自動的に変更するか？
+    override func shouldAutorotate() -> Bool{
+        return true
+    }
+    
     // MARK: - Button
     @IBAction func shutterButtonAction(sender: AnyObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             dispatch_async(dispatch_get_main_queue(), {
                 self.shutterButton.enabled = false
+                self.digitalTeleconButton.enabled = false
             })
             var camera = AppDelegate.sharedCamera
             
@@ -136,6 +150,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.shutterButton.enabled = true
+                self.digitalTeleconButton.enabled = true
             })
             NSThread.sleepForTimeInterval(0.5)
             self.updateCameraMediaRemain()
@@ -149,22 +164,41 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     @IBAction func digitalTeleconButtonAction(sender: AnyObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             var camera = AppDelegate.sharedCamera
-            let digitalzoomrange = camera.digitalZoomScaleRange(nil)
-            for var i = 0 ; i < self.digitalZoomList.count ; i++ {
-                if self.digitalZoomValue == self.digitalZoomList[i]  {
-                    if i == (self.digitalZoomList.count - 1) {
-                        self.digitalZoomValue = self.digitalZoomList[0]
-                    } else {
-                        self.digitalZoomValue = self.digitalZoomList[i+1]
+            if camera.connected {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.shutterButton.enabled = false
+                    self.digitalTeleconButton.enabled = false
+                })
+                let digitalzoomrange = camera.digitalZoomScaleRange(nil)
+                for var i = 0 ; i < self.digitalZoomList.count ; i++ {
+                    if self.digitalZoomValue == self.digitalZoomList[i]  {
+                        if i == (self.digitalZoomList.count - 1) {
+                            self.digitalZoomValue = self.digitalZoomList[0]
+                        } else {
+                            self.digitalZoomValue = self.digitalZoomList[i+1]
+                        }
+                        break
                     }
-                    break
                 }
+                if (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMinimumKey]?.floatValue <= self.digitalZoomValue) ||
+                    (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMaximumKey]?.floatValue >= self.digitalZoomValue) {
+                        camera.changeDigitalZoomScale(self.digitalZoomValue, error: nil)
+                        if self.digitalZoomValue == 2.0 {
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x2"), forState: UIControlState.Normal)
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x2_pushed"), forState: UIControlState.Highlighted)
+                        } else if self.digitalZoomValue == 3.0 {
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x3"), forState: UIControlState.Normal)
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x3_pushed"), forState: UIControlState.Highlighted)
+                        } else  {
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x1"), forState: UIControlState.Normal)
+                            self.digitalTeleconButton.setImage(UIImage(named: "ar_icn_dtelecon_x1_pushed"), forState: UIControlState.Highlighted)
+                        }
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.shutterButton.enabled = true
+                    self.digitalTeleconButton.enabled = true
+                })
             }
-            if (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMinimumKey]?.floatValue <= self.digitalZoomValue) ||
-               (digitalzoomrange[OLYCameraDigitalZoomScaleRangeMaximumKey]?.floatValue >= self.digitalZoomValue) {
-                    camera.changeDigitalZoomScale(self.digitalZoomValue, error: nil)
-            }
-            
         })
     }
     

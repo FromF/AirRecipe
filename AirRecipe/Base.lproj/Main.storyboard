@@ -53,12 +53,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRD-oD-HNy">
-                                <rect key="frame" x="16" y="28" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRD-oD-HNy">
+                                <rect key="frame" x="16" y="28" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="IVF-0U-ZcV"/>
+                                    <constraint firstAttribute="height" constant="32" id="MiK-2V-zBL"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
+                                <state key="normal" image="ar_icn_info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="ar_icn_info_pushed"/>
                                 <connections>
                                     <action selector="openBlogButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="len-NU-7gH"/>
                                 </connections>
@@ -176,16 +181,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvm-zO-dsv">
-                                <rect key="frame" x="544" y="540" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvm-zO-dsv">
+                                <rect key="frame" x="534" y="545" width="50" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="B8h-g6-em7"/>
-                                    <constraint firstAttribute="height" constant="40" id="NE8-JQ-BtA"/>
+                                    <constraint firstAttribute="width" constant="50" id="B8h-g6-em7"/>
+                                    <constraint firstAttribute="height" constant="35" id="NE8-JQ-BtA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="🔎">
+                                <state key="normal" image="ar_icn_dtelecon_x1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="highlighted" image="ar_icn_dtelecon_x1_pushed"/>
                                 <connections>
                                     <action selector="digitalTeleconButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="Bqi-wc-fCq"/>
                                 </connections>
@@ -239,6 +244,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ar_icn_dtelecon_x1" width="50" height="35"/>
+        <image name="ar_icn_dtelecon_x1_pushed" width="50" height="35"/>
+        <image name="ar_icn_info" width="32" height="32"/>
+        <image name="ar_icn_info_pushed" width="32" height="32"/>
         <image name="ar_icn_recipe" width="80" height="40"/>
         <image name="ar_icn_shoot" width="80" height="40"/>
         <image name="lv_battery_03" width="25" height="25"/>

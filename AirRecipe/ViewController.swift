@@ -71,6 +71,16 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         updateDetailTextView()
     }
     
+    // MARK: - Rotate Support
+    //サポートするデバイスの向きを指定する
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    //指定方向に自動的に変更するか？
+    override func shouldAutorotate() -> Bool{
+        return true
+    }
+
     // MARK: - Button Action
     @IBAction func openBlogButtonAction(sender: AnyObject) {
         let url = NSURL(string: "http://ameblo.jp/ux-t298/theme-10091245629.html")
@@ -113,8 +123,9 @@ class ViewController: UIViewController , UIScrollViewDelegate {
                 stringTitle  = NSLocalizedString("HDR_TITLE",comment: "")
                 stringDetail = NSLocalizedString("HDR",comment: "")
             case 4:
+                let cameraWrapper = CameraKitWrapper()
                 stringTitle  = NSLocalizedString("MOON_TITLE",comment: "")
-                stringDetail = NSLocalizedString("MOON",comment: "")
+                stringDetail = NSLocalizedString("MOON",comment: "") + "\n月齢:\(cameraWrapper.getMonthOld())"
             case 5:
                 stringTitle  = NSLocalizedString("WATERFALL_TITLE",comment: "")
                 stringDetail = NSLocalizedString("WATERFALL",comment: "")

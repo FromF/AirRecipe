@@ -73,16 +73,39 @@ class CameraKitWrapper: NSObject {
                 
             case 4: //MOON_IMG
                 self.propertyDictionary = [
-                    "TAKEMODE":"<TAKEMODE/S>",
+                    "TAKEMODE":"<TAKEMODE/M>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
-                    "SHUTTER":"<SHUTTER/640>",
-                    "AE":"<AE/AE_PINPOINT>",
-                    //"FOCUS_STILL":"<FOCUS_STILL/FOCUS_SAF>",
                     "RECVIEW":"<RECVIEW/OFF>",
-                    "EXPREV":"<EXPREV/-0.3>",
                 ]
-                self.isAFPointCenter = true    //基本はAF位置がセンター
+                //月齢に応じてシャッタースピード,絞り,ISOを決定する
+                let monthOld:Double = getMonthOld()
                 
+                if (monthOld >= 13.6) && (monthOld <= 16.0) { //満月14.8
+                    propertyDictionary["ISO"] = "<ISO/800>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/1000>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/8.0>"
+                } else if ((monthOld >= 11.1) && (monthOld <= 13.5)) || ((monthOld >= 16.1) && (monthOld <= 18.5)) { //12.3,17.3
+                    propertyDictionary["ISO"] = "<ISO/800>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/500>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/8.0>"
+                } else if ((monthOld >= 8.7) && (monthOld <= 11.0)) || ((monthOld >= 18.6) && (monthOld <= 21)) { //9.9,19.8
+                    propertyDictionary["ISO"] = "<ISO/800>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/500>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/6.3>"
+                } else if ((monthOld >= 6.2) && (monthOld <= 8.6)) || ((monthOld >= 21.1) && (monthOld <= 23.5)) { //半月7.4,22.3
+                    propertyDictionary["ISO"] = "<ISO/800>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/250>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/6.3>"
+                } else if ((monthOld >= 3.7) && (monthOld <= 6.1)) || ((monthOld >= 23.6) && (monthOld <= 26.0)) { //4.9,24.8
+                    propertyDictionary["ISO"] = "<ISO/1250>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/250>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/6.3>"
+                } else if ((monthOld >= 0) && (monthOld <= 3.6)) || ((monthOld >= 26.1) && (monthOld <= 30.0)) { //三日月2.5,27.3
+                    propertyDictionary["ISO"] = "<ISO/1600>"
+                    propertyDictionary["SHUTTER"] = "<SHUTTER/250>"
+                    propertyDictionary["APERTURE"] = "<APERTURE/6.3>"
+                }
+                self.isAFPointCenter = true    //基本はAF位置がセンター
             case 5: //WATERFALL_IMG
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/S>",
@@ -343,7 +366,7 @@ class CameraKitWrapper: NSObject {
         }
     }
 
-    func convertCLLocationDegreesToNmea(degrees:CLLocationDegrees) ->Double {
+    private func convertCLLocationDegreesToNmea(degrees:CLLocationDegrees) ->Double {
         var degreeSign:Double = 0
         
         if degrees > 0.0 {
@@ -363,4 +386,25 @@ class CameraKitWrapper: NSObject {
         return nmea
     }
     
+    func getMonthOld() -> Double {
+        let date = NSDate()
+        let calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        var comps:NSDateComponents = calendar!.components(NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay, fromDate: date)
+        let year:Double = Double(comps.year)
+        let month:Double = Double(comps.month)
+        let day:Double = Double(comps.day)
+        //(((YYYY-2009) %19)×11+MM+DD) %30
+        var monthOld:Double = (((year - 2009) % 19.0) * 11.0 + month + day) % 30.0
+        if month <= 2 {
+            // 1月と2月の月齢については、上記計算値に 2 を加える
+            monthOld += 2.0
+        }
+        if monthOld > 30.0 {
+            // 30超えると想定外になるため30にクリップする
+            monthOld = 30.0
+        }
+        println("monthOld:\(monthOld)")
+        
+        return monthOld
+    }
 }
