@@ -31,6 +31,7 @@
 		9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF061B4417050049FA0B /* LiveViewController.swift */; };
 		9D3FCF0A1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
 		9D3FCF0B1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
+		9D5AAB581B67CEFE00666F67 /* sample_through.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D5AAB571B67CEFE00666F67 /* sample_through.jpg */; };
 		9D6881E31B4452AA0047D530 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6881E21B4452AA0047D530 /* MBProgressHUD.m */; };
 		9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */; };
 		9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90091B303908003FB89C /* AirRecipeBGP_02Burst.jpg */; };
@@ -114,6 +115,7 @@
 		9D3FCF061B4417050049FA0B /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraKitWrapper.swift; sourceTree = "<group>"; };
+		9D5AAB571B67CEFE00666F67 /* sample_through.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_through.jpg; path = Resouce/sample_through.jpg; sourceTree = "<group>"; };
 		9D6881E11B4452AA0047D530 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9D6881E21B4452AA0047D530 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_01iAuto.jpg; path = Resouce/Image/AirRecipeBGP_01iAuto.jpg; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		9D8D90061B3038B1003FB89C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9D5AAB571B67CEFE00666F67 /* sample_through.jpg */,
 				9D8D901F1B306EE9003FB89C /* WatchImage */,
 				9D8D90071B3038BA003FB89C /* Image */,
 			);
@@ -455,6 +458,7 @@
 				9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */,
 				9D3E812C1B42E42D00E367B8 /* AirRecipeBGP_05Moon.jpg in Resources */,
 				9D91EDA11B46E49E0078A51D /* AirRecipeBGP_07FireWorls.jpg in Resources */,
+				9D5AAB581B67CEFE00666F67 /* sample_through.jpg in Resources */,
 				9D267E931B141E96002EFE1A /* Main.storyboard in Resources */,
 				9D8D900F1B303908003FB89C /* AirRecipeBGP_02Burst.jpg in Resources */,
 				9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */,

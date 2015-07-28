@@ -91,6 +91,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             })
         } else {
             mediaRemainLabel.text = "999"
+            liveViewImage.image = UIImage(named: "sample_through.jpg")
         }
         
         //CoreLocation Serivce
