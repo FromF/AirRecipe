@@ -89,6 +89,8 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
                     }
                 })
             })
+        } else {
+            mediaRemainLabel.text = "999"
         }
         
         //CoreLocation Serivce

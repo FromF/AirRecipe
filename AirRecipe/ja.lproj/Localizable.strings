@@ -31,8 +31,10 @@ CLIPS_IMG = "AirRecipeBGP_03Clip";
 HDR_IMG = "AirRecipeBGP_04HdrBkt";
 
 MOON_TITLE = "お月さま撮影";
-MOON = "お月さまをキレイに撮影できます。\nAIR A01 を三脚などに固定し、お月さまをライブビューの真ん中に配置して撮影してください。\n※ 焦点距離が 150mm 以上の望遠レンズの使用をお勧めします。";
+MOON = "お月さまを月齢に合わせた設定でキレイに撮影できます。\nAIR A01 を三脚などに固定し、お月さまをライブビューの真ん中に配置して撮影してください。\n※ 焦点距離が 150mm 以上の望遠レンズの使用をお勧めします。";
 MOON_IMG = "AirRecipeBGP_05Moon";
+MONTH_OLD = "月齢";
+
 WATERFALL_TITLE = "シルキー滝撮影";
 WATERFALL = "滝の水の流れをシルキーに表現するスローシャッター(1秒)で撮影できます。\nAIR A01 を三脚などに固定して撮影してください。\n※ ND8 フィルターをレンズに装着しての撮影をお勧めします。";
 WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";

@@ -403,7 +403,7 @@ class CameraKitWrapper: NSObject {
             // 30超えると想定外になるため30にクリップする
             monthOld = 30.0
         }
-        println("monthOld:\(monthOld)")
+        //println("monthOld:\(monthOld)")
         
         return monthOld
     }

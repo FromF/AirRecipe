@@ -31,8 +31,10 @@ CLIPS_IMG = "AirRecipeBGP_03Clip";
 HDR_IMG = "AirRecipeBGP_04HdrBkt";
 
 MOON_TITLE = "Moon shooting";
-MOON = "Shoot the moon clearly. \nPlace the moon in the middle of the live view, and shoot by fixing your Air A01 with tripod. \n* Recommend the use of a telephoto lens with a focal length of more than 150mm.";
+MOON = "Shoot the moon with the exposure settings matched to the lunar age. \nPlace the moon in the middle of the live view, and shoot by fixing your Air A01 with tripod. \n* Recommend the use of a telephoto lens with a focal length of more than 150mm.";
 MOON_IMG = "AirRecipeBGP_05Moon";
+MONTH_OLD = "Month Old";
+
 WATERFALL_TITLE = "Silky waterfall shooting";
 WATERFALL = "Shoot the flow of water of the waterfall with slow shutter setting(1sec) in order to express as silk. \nUse a tripod to fix your Air A01. \n* Recommend attaching a ND8 filter to the lens.";
 WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";

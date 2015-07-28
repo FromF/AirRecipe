@@ -20,6 +20,9 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     //
     var CatalogImageViews:AnyObject!
     let CatalogPageMax:NSInteger = 7
+    //Debug Mode
+    var debugCount:NSInteger = 0
+    var debugMode:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,10 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         
         // 位置情報へのアクセスを要求する
         locationManager.requestAlwaysAuthorization()  //GPS無効
+        
+        //中止ボタン:タップジェスチャー登録
+        let myTap = UITapGestureRecognizer(target: self, action: "tapGesture:")
+        DetailTextView.addGestureRecognizer(myTap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,7 +96,17 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         }
     }
     
-    
+    // MARK: - TapGesture
+    internal func tapGesture(sender: UITapGestureRecognizer){
+        debugCount++
+        if debugCount >= 10 {
+            if debugMode == false {
+                debugMode = true
+                updateDetailTextView()
+            }
+        }
+    }
+
     // MARK: - ScrollView Delegate
     func scrollViewDidScroll(scrollview: UIScrollView) {
         //println("framesize = \(self.CatalogScrollView.frame.size) contentOffset = \(self.CatalogScrollView.contentOffset)")
@@ -125,7 +142,11 @@ class ViewController: UIViewController , UIScrollViewDelegate {
             case 4:
                 let cameraWrapper = CameraKitWrapper()
                 stringTitle  = NSLocalizedString("MOON_TITLE",comment: "")
-                stringDetail = NSLocalizedString("MOON",comment: "") + "\n月齢:\(cameraWrapper.getMonthOld())"
+                if debugMode == true {
+                    stringDetail = NSLocalizedString("MOON",comment: "") + "\n" + NSLocalizedString("MONTH_OLD",comment: "") + ":\(cameraWrapper.getMonthOld())"
+                } else {
+                    stringDetail = NSLocalizedString("MOON",comment: "")
+                }
             case 5:
                 stringTitle  = NSLocalizedString("WATERFALL_TITLE",comment: "")
                 stringDetail = NSLocalizedString("WATERFALL",comment: "")
