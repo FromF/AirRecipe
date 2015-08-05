@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import MediaPlayer
+import AudioToolbox
 
 class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , OLYCameraPropertyDelegate , MBProgressHUDDelegate {
     
@@ -107,6 +109,12 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             }
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //リモコン開始
+        startRemoteControl()
+    }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -123,6 +131,9 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         
         //CoreLocation Serivce
         locationManager.stopUpdatingLocation()
+        
+        //リモコン終了
+        endRemoteControl()
     }
     
     override func didReceiveMemoryWarning() {
@@ -311,6 +322,42 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
         var camera = AppDelegate.sharedCamera
         self.cameraWrapper.setGeoLocation(camera, location: newLocation)
+    }
+    
+    //MARK:- RemoteControl Support
+    //内部保持用
+    var volumeSlider:UISlider!
+    var initialVolume : Float = 0
+    func startRemoteControl() {
+        let frame:CGRect = CGRectMake(-100, -100, 100, 100)
+        var volumeView:MPVolumeView = MPVolumeView(frame: frame)
+        volumeView.sizeToFit()
+        view.addSubview(volumeView)
+        
+        //音量のスライダーUIと音量を取得する
+        for var i = 0 ; i < volumeView.subviews.count ; i++ {
+            let subview: AnyObject = volumeView.subviews[i]
+            println(subview)
+            println(NSStringFromClass(subview.classForCoder))
+            if NSStringFromClass(subview.classForCoder) == "MPVolumeSlider" {
+                volumeSlider = subview as! UISlider
+                initialVolume = volumeSlider.value
+            }
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "NotificationVolumeChange:", name: "AVSystemController_SystemVolumeDidChangeNotification" , object: nil)
+    }
+    
+    func endRemoteControl() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
+    }
+    
+    func NotificationVolumeChange(notification : NSNotification?) {
+        
+        if shutterButton.enabled == true {
+            shutterButtonAction(shutterButton)
+        }
+        volumeSlider.value = initialVolume
     }
     
     /*
