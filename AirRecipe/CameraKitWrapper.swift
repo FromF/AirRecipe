@@ -58,6 +58,7 @@ class CameraKitWrapper: NSObject {
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/movie>",
                     "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_SHORT_MOVIE>",
+                    "FULL_TIME_AF":"<FULL_TIME_AF/ON>",
                 ]
                 self.isClipsMovie = true    //Clips動画
                 
