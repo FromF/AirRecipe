@@ -27,9 +27,6 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var defaultvalue : NSDictionary = [appDelegate.CatalogSelectNumber : 0]
-        appDelegate.defaults.registerDefaults(defaultvalue as [NSObject : AnyObject])
-        
         CatalogPageControl.numberOfPages = CatalogPageMax
         CatalogScrollView.delegate = self
         

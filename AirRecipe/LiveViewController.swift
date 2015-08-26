@@ -20,6 +20,8 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     @IBOutlet weak var batteryLevelImage: UIImageView!
     @IBOutlet weak var mediaRemainLabel: UILabel!
     @IBOutlet weak var digitalTeleconButton: UIButton!
+    @IBOutlet weak var brightnessSlider: UISlider!
+    @IBOutlet weak var brightnessEnableButton: UIButton!
     
     //
     //AppDelegate instance
@@ -43,11 +45,15 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         "<BATTERY_LEVEL/SUPPLY_LOW>": "lv_battery_02",
         "<BATTERY_LEVEL/SUPPLY_FULL>": "lv_battery_03",
     ]
+    //brightnessSliderEnable
+    var brightnessSliderEnable:Bool = false
+    var brightnessSliderDisableTimer:NSTimer!
     //DigitalZoomList
     let digitalZoomList:[Float] = [ 1.0 , 2.0 , 3.0]
     var digitalZoomValue:Float = 1.0
     //Debug Mode
     let debugMode = false
+    let memoryrightness = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +73,19 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         camera.cameraPropertyDelegate = self
         camera.addObserver(self, forKeyPath: "remainingImageCapacity", options: nil, context: nil)
         
+        //トーンコントロール値取得
+        if memoryrightness {
+            cameraWrapper.toneControlMiddleValue = appDelegate.defaults.objectForKey(appDelegate.ToneControlMiddle) as! NSInteger
+            cameraWrapper.expRevValue = appDelegate.defaults.objectForKey(appDelegate.ExpRev) as! NSInteger
+        }
+        
+        //明るさボタンの初期化
+        brightnessSliderEnable = false
+        updatebrightnessEnableButton()
+        
         if !debugMode {
             //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
-            shutterButton.hidden = true
-            batteryLevelImage.hidden = true
-            mediaRemainLabel.hidden = true
-            digitalTeleconButton.hidden = true
+            self.UpdateUIattribute(false, hidden: true)
             showHud(NSLocalizedString("CONNECTING",comment: ""))
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -81,6 +94,22 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
                 camera.changeLiveViewSize(OLYCameraLiveViewSizeVGA, error: nil)
                 dispatch_async(dispatch_get_main_queue(), {
                     if camera.connected {
+                        if self.cameraWrapper.useToneControlMiddle {
+                            self.brightnessSlider.value = Float(self.cameraWrapper.toneControlMiddleValue)
+                            self.brightnessSlider.minimumValue = 0
+                            self.brightnessSlider.maximumValue = 14
+                        } else {
+                            let actionType :OLYCameraActionType = camera.actionType()
+                            if (actionType.value == OLYCameraActionTypeMovie.value) {
+                                self.brightnessSlider.minimumValue = 6
+                                self.brightnessSlider.maximumValue = 24
+                            } else {
+                                self.brightnessSlider.minimumValue = 0
+                                self.brightnessSlider.maximumValue = 30
+                            }
+                            self.brightnessSlider.value = Float(self.cameraWrapper.expRevValue)
+                        }
+
                         if camera.actionType().value == OLYCameraActionTypeMovie.value {
                             //動画撮影モード時はRECと表示する
                             self.shutterButton.setImage(UIImage(named: "rp_shutter_btn_video"), forState: UIControlState.Normal)
@@ -94,6 +123,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         } else {
             mediaRemainLabel.text = "999"
             liveViewImage.image = UIImage(named: "sample_through.jpg")
+            UpdateUIattribute(true,hidden: false)
         }
         
         //CoreLocation Serivce
@@ -155,16 +185,14 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     @IBAction func shutterButtonAction(sender: AnyObject) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             dispatch_async(dispatch_get_main_queue(), {
-                self.shutterButton.enabled = false
-                self.digitalTeleconButton.enabled = false
+                self.UpdateUIattribute(false, hidden: false)
             })
             var camera = AppDelegate.sharedCamera
             
             self.cameraWrapper.takePicture(camera)
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.shutterButton.enabled = true
-                self.digitalTeleconButton.enabled = true
+                self.UpdateUIattribute(true, hidden: false)
             })
             NSThread.sleepForTimeInterval(0.5)
             self.updateCameraMediaRemain()
@@ -180,8 +208,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             var camera = AppDelegate.sharedCamera
             if camera.connected {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.shutterButton.enabled = false
-                    self.digitalTeleconButton.enabled = false
+                    self.UpdateUIattribute(false, hidden: false)
                 })
                 let digitalzoomrange = camera.digitalZoomScaleRange(nil)
                 for var i = 0 ; i < self.digitalZoomList.count ; i++ {
@@ -209,13 +236,92 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
                         }
                 }
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.shutterButton.enabled = true
-                    self.digitalTeleconButton.enabled = true
+                    self.UpdateUIattribute(true, hidden: false)
                 })
             }
         })
     }
+    @IBAction func brightnessSliderAction(sender: AnyObject) {
+        let slider : UISlider = sender as! UISlider
+        //四捨五入
+        brightnessSlider.value = roundf(slider.value)
+        //整数型に変換
+        let value:NSInteger = NSInteger(brightnessSlider.value)
+        let camera = AppDelegate.sharedCamera
+        if cameraWrapper.useToneControlMiddle {
+            brightnessSlider.value = Float(value)
+            cameraWrapper.setToneControlMiddle(camera, value: value)
+            appDelegate.defaults.setObject(value, forKey:appDelegate.ToneControlMiddle)
+        } else {
+            brightnessSlider.value = Float(value)
+            cameraWrapper.setExpRev(camera, value: value)
+            appDelegate.defaults.setObject(value, forKey:appDelegate.ExpRev)
+        }
+        appDelegate.defaults.synchronize()
+        setBrightnessEnableButtonTimer()
+    }
     
+    @IBAction func brightnessEnableButtonAction(sender: AnyObject) {
+        if brightnessSliderEnable {
+            brightnessSliderEnable = false
+        } else {
+            brightnessSliderEnable = true
+            setBrightnessEnableButtonTimer()
+        }
+        updatebrightnessEnableButton()
+    }
+    
+    func updatebrightnessEnableButton() {
+        if brightnessSliderEnable {
+            brightnessEnableButton.setImage(UIImage(named: "brightness_selected"), forState: UIControlState.Normal)
+            brightnessSlider.hidden = false
+        } else {
+            brightnessEnableButton.setImage(UIImage(named: "brightness"), forState: UIControlState.Normal)
+            brightnessSlider.hidden = true
+        }
+    }
+    
+    func setBrightnessEnableButtonTimer() {
+        if brightnessSliderDisableTimer != nil && brightnessSliderDisableTimer.valid {
+            brightnessSliderDisableTimer.invalidate()
+        }
+        
+        brightnessSliderDisableTimer = NSTimer.scheduledTimerWithTimeInterval(8.0, target: self, selector: Selector("onBrightnessEnableButtonTimer:"), userInfo: nil, repeats: false)
+    }
+    
+    func onBrightnessEnableButtonTimer(timer: NSTimer) {
+        //タイムアウトしたのでスライダーを消す
+        brightnessSliderEnable = false
+        updatebrightnessEnableButton()
+    }
+    
+    
+    func UpdateUIattribute(enabled:Bool , hidden:Bool) {
+        let camera = AppDelegate.sharedCamera
+        let actionType :OLYCameraActionType = camera.actionType()
+        shutterButton.enabled = enabled
+        digitalTeleconButton.enabled = enabled
+        brightnessSlider.enabled = enabled
+        brightnessEnableButton.enabled = enabled
+        
+        shutterButton.hidden = hidden
+        batteryLevelImage.hidden = hidden
+        mediaRemainLabel.hidden = hidden
+        digitalTeleconButton.hidden = hidden
+        brightnessSlider.hidden = hidden
+        brightnessEnableButton.hidden = hidden
+        
+        if !cameraWrapper.enableBrightness {
+            //明るさ調節不可
+            brightnessEnableButton.hidden = true
+        }
+        
+        if (!cameraWrapper.enableBrightness) || (!brightnessSliderEnable) {
+            //明るさ調節不可
+            brightnessSlider.hidden = true
+        }
+    }
+
     // MARK: - LiveView Update
     func camera(camera: OLYCamera!, didUpdateLiveView data: NSData!, metadata: [NSObject : AnyObject]!) {
         var image : UIImage = OLYCameraConvertDataToImage(data,metadata)
@@ -256,10 +362,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         var camera = AppDelegate.sharedCamera
         if camera.connected {
             //接続が完了したらボタンを押せるようにする
-            self.shutterButton.hidden = false
-            self.batteryLevelImage.hidden = false
-            self.mediaRemainLabel.hidden = false
-            digitalTeleconButton.hidden = false
+            UpdateUIattribute(true, hidden: false)
             updateCameraStatus()
         } else {
             //Hudが閉じられた時にAIRと接続されていない場合にはViewを閉じる

@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let defaults = NSUserDefaults.standardUserDefaults()
     let CatalogSelectNumber:String = "SelectNumber"
+    let ToneControlMiddle:String = "TONE_CONTROL_MIDDLE"
+    let ExpRev:String = "EXPREV"
     let CatalogSlectImageName:String = "SlectImageName"
     let NotificationWatchAppStared : NSString = "NotificationWatchAppStared"
 
@@ -27,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var defaultvalue : NSDictionary = [
+                                            CatalogSelectNumber : 0,
+                                            ToneControlMiddle: 7,
+                                            ExpRev: 15,
+                                          ]
+        defaults.registerDefaults(defaultvalue as [NSObject : AnyObject])
         return true
     }
 

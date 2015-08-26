@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -195,27 +195,57 @@
                                     <action selector="digitalTeleconButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="Bqi-wc-fCq"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="0.0" maxValue="14" translatesAutoresizingMaskIntoConstraints="NO" id="WSA-UH-9Fa">
+                                <rect key="frame" x="158" y="486" width="284" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="dKW-uJ-bOZ"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="brightnessSliderAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="JkU-ke-gFV"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7v-U3-dO7">
+                                <rect key="frame" x="16" y="545" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="XVQ-ay-5Ar"/>
+                                    <constraint firstAttribute="width" constant="50" id="eEd-XQ-fkp"/>
+                                </constraints>
+                                <state key="normal" image="brightness">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="brightnessEnableButtonAction:" destination="agN-cl-SUx" eventType="touchUpInside" id="5mc-6E-5CK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="SQk-7j-enq" secondAttribute="bottom" id="08y-py-gC9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="inE-3n-opd" secondAttribute="trailing" constant="-8" id="0Sc-Sr-N7M"/>
+                            <constraint firstItem="WSA-UH-9Fa" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" id="3jD-Pg-j6S"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="4Ge-Bf-NfA"/>
                             <constraint firstItem="inE-3n-opd" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" constant="-16" id="5tx-3K-Yka"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SQk-7j-enq" secondAttribute="trailing" constant="-16" id="61f-e8-jot"/>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="Mvm-zO-dsv" secondAttribute="bottom" constant="20" id="9n2-RB-rvo"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" constant="-16" id="AEi-X8-ys9"/>
                             <constraint firstItem="Ezj-8v-ahp" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" constant="10" id="CAs-ny-kBq"/>
+                            <constraint firstItem="3Sp-ed-7nH" firstAttribute="leading" secondItem="WSA-UH-9Fa" secondAttribute="trailing" constant="20" id="CWD-SW-cIv"/>
                             <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="CsP-O3-Rd8"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="3Sp-ed-7nH" secondAttribute="bottom" constant="10" id="D8v-O3-z5S"/>
                             <constraint firstItem="inE-3n-opd" firstAttribute="leading" secondItem="Ezj-8v-ahp" secondAttribute="trailing" constant="8" id="LGg-Cx-hlQ"/>
+                            <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="WSA-UH-9Fa" secondAttribute="bottom" constant="8" id="O3q-DI-3Zj"/>
+                            <constraint firstItem="WSA-UH-9Fa" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" id="Rzn-hM-ZI3"/>
+                            <constraint firstItem="3Sp-ed-7nH" firstAttribute="top" secondItem="WSA-UH-9Fa" secondAttribute="bottom" constant="8" id="S3R-k4-guk"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="SzG-Dx-eGR"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="UAA-dm-QD3"/>
                             <constraint firstItem="SQk-7j-enq" firstAttribute="top" secondItem="6On-aQ-lNe" secondAttribute="bottom" id="akF-7r-eNb"/>
                             <constraint firstItem="vvz-Dr-zTT" firstAttribute="bottom" secondItem="SQk-7j-enq" secondAttribute="bottom" id="eFk-xq-2NY"/>
                             <constraint firstItem="inE-3n-opd" firstAttribute="top" secondItem="vvz-Dr-zTT" secondAttribute="bottom" constant="8" id="fsH-jd-iyN"/>
+                            <constraint firstItem="q7v-U3-dO7" firstAttribute="leading" secondItem="WwM-cX-G1W" secondAttribute="leadingMargin" id="hvE-X4-dKb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vvz-Dr-zTT" secondAttribute="trailing" constant="-16" id="pdi-en-ViJ"/>
+                            <constraint firstItem="zkA-Uw-Jcd" firstAttribute="top" secondItem="q7v-U3-dO7" secondAttribute="bottom" constant="20" id="rsP-AQ-U1n"/>
                             <constraint firstAttribute="centerX" secondItem="3Sp-ed-7nH" secondAttribute="centerX" id="t28-8w-i93"/>
+                            <constraint firstAttribute="centerX" secondItem="WSA-UH-9Fa" secondAttribute="centerX" id="uMh-G7-hMN"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vvz-Dr-zTT" secondAttribute="bottom" id="wNB-4N-Ww6"/>
                             <constraint firstItem="Mvm-zO-dsv" firstAttribute="trailing" secondItem="WwM-cX-G1W" secondAttribute="trailingMargin" id="xYa-eB-D8z"/>
                         </constraints>
@@ -225,12 +255,18 @@
                                 <exclude reference="eFk-xq-2NY"/>
                                 <exclude reference="wNB-4N-Ww6"/>
                                 <exclude reference="akF-7r-eNb"/>
+                                <exclude reference="3jD-Pg-j6S"/>
+                                <exclude reference="Rzn-hM-ZI3"/>
                                 <exclude reference="5tx-3K-Yka"/>
+                                <exclude reference="CWD-SW-cIv"/>
+                                <exclude reference="O3q-DI-3Zj"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="batteryLevelImage" destination="inE-3n-opd" id="H5O-ug-YDd"/>
+                        <outlet property="brightnessEnableButton" destination="q7v-U3-dO7" id="vmL-ZL-JAA"/>
+                        <outlet property="brightnessSlider" destination="WSA-UH-9Fa" id="tZM-mp-pj6"/>
                         <outlet property="digitalTeleconButton" destination="Mvm-zO-dsv" id="Ye5-gA-duC"/>
                         <outlet property="disconnectButton" destination="vvz-Dr-zTT" id="cTb-BI-Rb0"/>
                         <outlet property="liveViewImage" destination="SQk-7j-enq" id="vpm-Tu-qGw"/>
@@ -242,6 +278,23 @@
             </objects>
             <point key="canvasLocation" x="1247" y="412"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="pHY-PS-FBR">
+            <objects>
+                <viewController id="tpp-Nl-Zs0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XIU-qc-Aut"/>
+                        <viewControllerLayoutGuide type="bottom" id="HPV-VM-bRH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gSW-Xy-FLQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ce-TV-cJv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="ar_icn_dtelecon_x1" width="50" height="35"/>
@@ -250,6 +303,7 @@
         <image name="ar_icn_info_pushed" width="32" height="32"/>
         <image name="ar_icn_recipe" width="80" height="40"/>
         <image name="ar_icn_shoot" width="80" height="40"/>
+        <image name="brightness" width="50" height="35"/>
         <image name="lv_battery_03" width="25" height="25"/>
         <image name="rp_shutter_btn_camera" width="66" height="66"/>
     </resources>

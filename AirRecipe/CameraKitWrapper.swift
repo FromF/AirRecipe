@@ -23,6 +23,61 @@ class CameraKitWrapper: NSObject {
         "TAKEMODE":"<TAKEMODE/iAuto>",
         "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
     ]
+    var enableBrightness:Bool = true
+    var useExpRev:Bool = false
+    var useToneControlMiddle:Bool = false
+    var toneControlMiddleValue : NSInteger = 7
+    let toneControlMiddleSettingList = [
+        "<TONE_CONTROL_MIDDLE/-7>",
+        "<TONE_CONTROL_MIDDLE/-6>",
+        "<TONE_CONTROL_MIDDLE/-5>",
+        "<TONE_CONTROL_MIDDLE/-4>",
+        "<TONE_CONTROL_MIDDLE/-3>",
+        "<TONE_CONTROL_MIDDLE/-2>",
+        "<TONE_CONTROL_MIDDLE/-1>",
+        "<TONE_CONTROL_MIDDLE/0>",
+        "<TONE_CONTROL_MIDDLE/+1>",
+        "<TONE_CONTROL_MIDDLE/+2>",
+        "<TONE_CONTROL_MIDDLE/+3>",
+        "<TONE_CONTROL_MIDDLE/+4>",
+        "<TONE_CONTROL_MIDDLE/+5>",
+        "<TONE_CONTROL_MIDDLE/+6>",
+        "<TONE_CONTROL_MIDDLE/+7>",
+    ]
+    var expRevValue : NSInteger = 15
+    let expRevSettingValueList = [
+        "<EXPREV/-5.0>",
+        "<EXPREV/-4.7>",
+        "<EXPREV/-4.3>",
+        "<EXPREV/-4.0>",
+        "<EXPREV/-3.7>",
+        "<EXPREV/-3.3>",
+        "<EXPREV/-3.0>",
+        "<EXPREV/-2.7>",
+        "<EXPREV/-2.3>",
+        "<EXPREV/-2.0>",
+        "<EXPREV/-1.7>",
+        "<EXPREV/-1.3>",
+        "<EXPREV/-1.0>",
+        "<EXPREV/-0.7>",
+        "<EXPREV/-0.3>",
+        "<EXPREV/0.0>",
+        "<EXPREV/+0.3>",
+        "<EXPREV/+0.7>",
+        "<EXPREV/+1.0>",
+        "<EXPREV/+1.3>",
+        "<EXPREV/+1.7>",
+        "<EXPREV/+2.0>",
+        "<EXPREV/+2.3>",
+        "<EXPREV/+2.7>",
+        "<EXPREV/+3.0>",
+        "<EXPREV/+3.3>",
+        "<EXPREV/+3.7>",
+        "<EXPREV/+4.0>",
+        "<EXPREV/+4.3>",
+        "<EXPREV/+4.7>",
+        "<EXPREV/+5.0>",
+    ]
 
     func connectOPC(index:NSInteger , camera:OLYCamera) {
         var result : Bool = true
@@ -38,27 +93,45 @@ class CameraKitWrapper: NSObject {
             self.isHDRShooting = false  //基本はHDR撮影ではない
             self.isClipsMovie = false   //基本はClips動画ではない
             self.isAFPointCenter = false    //基本はAF位置がセンターではない
-            
+            enableBrightness = true
+            useExpRev = false
+            useToneControlMiddle = true
+
             switch(index) {
             case 0: //SINGLE_IMG
                 self.propertyDictionary = [
-                    "TAKEMODE":"<TAKEMODE/iAuto>",
+                    "TAKEMODE":"<TAKEMODE/P>",
+                    "COLORTONE":"<COLORTONE/I_FINISH>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                    "WB":"<WB/WB_AUTO>",
+                    "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
+                    "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
+                    "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
+                    "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
                     "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 
             case 1: //CONTINUOUS_IMG
                 self.propertyDictionary = [
-                    "TAKEMODE":"<TAKEMODE/iAuto>",
+                    "TAKEMODE":"<TAKEMODE/P>",
+                    "COLORTONE":"<COLORTONE/I_FINISH>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_CONTINUE>",
+                    "WB":"<WB/WB_AUTO>",
+                    "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
+                    "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
+                    "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
+                    "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
                     "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 
             case 2: //MOVIE_IMG
+                useExpRev = true
+                useToneControlMiddle = false
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/movie>",
                     "QUALITY_MOVIE":"<QUALITY_MOVIE/QUALITY_MOVIE_SHORT_MOVIE>",
                     "FULL_TIME_AF":"<FULL_TIME_AF/ON>",
+                    "EXPREV":expRevSettingValueList[expRevValue],
                 ]
                 self.isClipsMovie = true    //Clips動画
                 
@@ -69,10 +142,16 @@ class CameraKitWrapper: NSObject {
                     "APERTURE":"<APERTURE/8.0>",
                     //"RAW":"<RAW/ON>",
                     "RECVIEW":"<RECVIEW/OFF>",
+                    "WB":"<WB/WB_AUTO>",
+                    "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
+                    "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
+                    "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
+                    "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
                 ]
                 self.isHDRShooting = true    //HDR撮影
                 
             case 4: //MOON_IMG
+                enableBrightness = false
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/M>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
@@ -108,6 +187,7 @@ class CameraKitWrapper: NSObject {
                 }
                 self.isAFPointCenter = true    //基本はAF位置がセンター
             case 5: //WATERFALL_IMG
+                enableBrightness = false
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/S>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
@@ -126,6 +206,9 @@ class CameraKitWrapper: NSObject {
                     "WB":"<WB/MWB_LAMP>",
                     //"FOCUS_STILL":"<FOCUS_STILL/FOCUS_SAF>",
                     "RECVIEW":"<RECVIEW/OFF>",
+                    "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
+                    "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
+                    "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
                 ]
             default:
                 self.propertyDictionary = [
@@ -135,7 +218,7 @@ class CameraKitWrapper: NSObject {
                 ]
                 
             }
-            println(self.propertyDictionary)
+            //println(self.propertyDictionary)
             result = camera.setCameraPropertyValues(self.propertyDictionary, error: nil)
         }
         if ((result) && (camera.connected)) {
@@ -407,5 +490,14 @@ class CameraKitWrapper: NSObject {
         //println("monthOld:\(monthOld)")
         
         return monthOld
+    }
+    
+    func setToneControlMiddle(camera:OLYCamera , value : NSInteger) -> Bool {
+        let result = camera.setCameraPropertyValue("TONE_CONTROL_MIDDLE", value: toneControlMiddleSettingList[value], error: nil)
+        return result
+    }
+    func setExpRev(camera:OLYCamera , value : NSInteger) -> Bool {
+        let result = camera.setCameraPropertyValue("EXPREV", value: expRevSettingValueList[value], error: nil)
+        return result
     }
 }
