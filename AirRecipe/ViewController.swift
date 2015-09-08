@@ -13,6 +13,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var CatalogScrollView: UIScrollView!
     @IBOutlet weak var DetailTextView: UITextView!
     @IBOutlet weak var CatalogPageControl: UIPageControl!
+    @IBOutlet weak var PostInstagramSwitch: UISwitch!
     //AppDelegate instance
     var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     //CoreLocation Serivce
@@ -29,6 +30,9 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         CatalogPageControl.numberOfPages = CatalogPageMax
         CatalogScrollView.delegate = self
+        
+        //設定呼び出し
+        PostInstagramSwitch.on = appDelegate.defaults.objectForKey(appDelegate.isPostInstagram) as! Bool
         
         // 位置情報へのアクセスを要求する
         locationManager.requestAlwaysAuthorization()  //GPS無効
@@ -91,6 +95,11 @@ class ViewController: UIViewController , UIScrollViewDelegate {
         if UIApplication.sharedApplication().canOpenURL(url!){
             UIApplication.sharedApplication().openURL(url!)
         }
+    }
+    @IBAction func postInstagramSwitchAction(sender: AnyObject) {
+        //設定保持
+        appDelegate.defaults.setObject(PostInstagramSwitch.on, forKey:appDelegate.isPostInstagram)
+        appDelegate.defaults.synchronize()
     }
     
     // MARK: - TapGesture

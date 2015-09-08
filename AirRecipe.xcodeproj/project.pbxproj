@@ -53,6 +53,7 @@
 		9D9E08B01B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
 		9D9E08B11B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
 		9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */; };
+		A7BFBC721B9ED55C00638CF6 /* PostInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFBC711B9ED55C00638CF6 /* PostInstagram.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		9D9E08AD1B170E7900281F48 /* AirRecipe WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
 		9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/Image/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
+		A7BFBC701B9ED55C00638CF6 /* PostInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostInstagram.h; sourceTree = "<group>"; };
+		A7BFBC711B9ED55C00638CF6 /* PostInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostInstagram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 			children = (
 				9D6881E11B4452AA0047D530 /* MBProgressHUD.h */,
 				9D6881E21B4452AA0047D530 /* MBProgressHUD.m */,
+				A7BFBC701B9ED55C00638CF6 /* PostInstagram.h */,
+				A7BFBC711B9ED55C00638CF6 /* PostInstagram.m */,
 				9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */,
 				9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */,
 				9D267E8D1B141E95002EFE1A /* AppDelegate.swift */,
@@ -518,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7BFBC721B9ED55C00638CF6 /* PostInstagram.m in Sources */,
 				9D267E901B141E95002EFE1A /* ViewController.swift in Sources */,
 				9D6881E31B4452AA0047D530 /* MBProgressHUD.m in Sources */,
 				9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */,

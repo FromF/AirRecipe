@@ -11,7 +11,7 @@ import CoreLocation
 import MediaPlayer
 import AudioToolbox
 
-class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , OLYCameraPropertyDelegate , MBProgressHUDDelegate {
+class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , OLYCameraPropertyDelegate , OLYCameraRecordingSupportsDelegate , MBProgressHUDDelegate {
     
     //
     @IBOutlet weak var liveViewImage: UIImageView!
@@ -70,6 +70,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         var camera = AppDelegate.sharedCamera
         camera.connectionDelegate = self
         camera.liveViewDelegate = self
+        camera.recordingSupportsDelegate = self
         camera.cameraPropertyDelegate = self
         camera.addObserver(self, forKeyPath: "remainingImageCapacity", options: nil, context: nil)
         
@@ -82,6 +83,9 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         //明るさボタンの初期化
         brightnessSliderEnable = false
         updatebrightnessEnableButton()
+        
+        //レックビュー有無
+        cameraWrapper.isRecview = appDelegate.defaults.objectForKey(appDelegate.isPostInstagram) as! Bool
         
         if !debugMode {
             //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
@@ -326,6 +330,16 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     func camera(camera: OLYCamera!, didUpdateLiveView data: NSData!, metadata: [NSObject : AnyObject]!) {
         var image : UIImage = OLYCameraConvertDataToImage(data,metadata)
         self.liveViewImage.image = image
+    }
+    
+    // MARK: - RecView
+    func camera(camera: OLYCamera!, didReceiveCapturedImagePreview data: NSData!, metadata: [NSObject : AnyObject]!) {
+        if PostInstagram.canInstagramOpen() {
+            let instagramViewController:PostInstagram = PostInstagram()
+            instagramViewController.setImageData(data)
+            self.view.addSubview(instagramViewController.view)
+            self.addChildViewController(instagramViewController)
+        }
     }
     
     // MARK: - ConnectionDelegate

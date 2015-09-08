@@ -12,5 +12,6 @@
 #import <OLYCameraKit/OLYCamera.h>
 #import <OLYCameraKit/OACentralConfiguration.h>
 #import "MBProgressHUD.h"
+#import "PostInstagram.h"
 
 #endif

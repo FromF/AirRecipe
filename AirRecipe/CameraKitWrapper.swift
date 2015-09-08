@@ -16,6 +16,8 @@ class CameraKitWrapper: NSObject {
     var isHDRShooting : Bool = false
     //AF Point Center Flag
     var isAFPointCenter : Bool = false
+    //RecView Flag
+    var isRecview : Bool = false
     //GeoTag
     var nmea0183:NSMutableString = ""
     //CameraProperty
@@ -108,7 +110,6 @@ class CameraKitWrapper: NSObject {
                     "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
                     "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
                     "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 
             case 1: //CONTINUOUS_IMG
@@ -121,7 +122,6 @@ class CameraKitWrapper: NSObject {
                     "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
                     "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
                     "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 
             case 2: //MOVIE_IMG
@@ -141,7 +141,6 @@ class CameraKitWrapper: NSObject {
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
                     "APERTURE":"<APERTURE/8.0>",
                     //"RAW":"<RAW/ON>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                     "WB":"<WB/WB_AUTO>",
                     "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
                     "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
@@ -155,7 +154,6 @@ class CameraKitWrapper: NSObject {
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/M>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 //月齢に応じてシャッタースピード,絞り,ISOを決定する
                 let monthOld:Double = getMonthOld()
@@ -194,7 +192,6 @@ class CameraKitWrapper: NSObject {
                     "ISO":"<ISO/200>",
                     "SHUTTER":"<SHUTTER/1\">",
                     //"FOCUS_STILL":"<FOCUS_STILL/FOCUS_SAF>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                 ]
             case 6: //FIREWORKS_IMG
                 self.propertyDictionary = [
@@ -205,7 +202,6 @@ class CameraKitWrapper: NSObject {
                     "APERTURE":"<APERTURE/11>",
                     "WB":"<WB/MWB_LAMP>",
                     //"FOCUS_STILL":"<FOCUS_STILL/FOCUS_SAF>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                     "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
                     "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
                     "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
@@ -214,10 +210,17 @@ class CameraKitWrapper: NSObject {
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/iAuto>",
                     "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
-                    "RECVIEW":"<RECVIEW/OFF>",
                 ]
                 
             }
+            if !self.isClipsMovie {
+                if self.isRecview {
+                    propertyDictionary["RECVIEW"] = "<RECVIEW/ON>"
+                } else {
+                    propertyDictionary["RECVIEW"] = "<RECVIEW/OFF>"
+                }
+            }
+            
             //println(self.propertyDictionary)
             result = camera.setCameraPropertyValues(self.propertyDictionary, error: nil)
         }

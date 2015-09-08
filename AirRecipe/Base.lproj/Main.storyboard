@@ -23,6 +23,12 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lCO-fm-tas">
                                 <rect key="frame" x="280" y="421" width="39" height="37"/>
                             </pageControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PjF-Tz-wHJ">
+                                <rect key="frame" x="535" y="419" width="51" height="31"/>
+                                <connections>
+                                    <action selector="postInstagramSwitchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="rZS-qp-Lj3"/>
+                                </connections>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yr-8w-ED1">
                                 <rect key="frame" x="0.0" y="560" width="600" height="40"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.76470588240000004" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -71,6 +77,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1qD-Zc-TNJ" firstAttribute="top" secondItem="PjF-Tz-wHJ" secondAttribute="bottom" constant="8" id="0A9-m0-QwA"/>
                             <constraint firstAttribute="centerX" secondItem="lCO-fm-tas" secondAttribute="centerX" id="16K-Wd-9AR"/>
                             <constraint firstItem="6yr-8w-ED1" firstAttribute="top" secondItem="1qD-Zc-TNJ" secondAttribute="bottom" constant="2" id="C0H-UG-xts"/>
                             <constraint firstAttribute="bottomMargin" secondItem="6yr-8w-ED1" secondAttribute="bottom" id="DAR-Uz-Mbg"/>
@@ -78,6 +85,7 @@
                             <constraint firstItem="ZRD-oD-HNy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Jj3-km-Dge"/>
                             <constraint firstItem="1qD-Zc-TNJ" firstAttribute="top" secondItem="lCO-fm-tas" secondAttribute="bottom" id="LZw-9d-xQG"/>
                             <constraint firstItem="1qD-Zc-TNJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Mcx-ZD-vaz"/>
+                            <constraint firstItem="PjF-Tz-wHJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PN8-U5-hEw"/>
                             <constraint firstItem="6yr-8w-ED1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Udw-iB-bpa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1qD-Zc-TNJ" secondAttribute="trailing" constant="-16" id="d0W-cS-MKG"/>
                             <constraint firstAttribute="centerX" secondItem="6yr-8w-ED1" secondAttribute="centerX" id="dgN-i8-4Ye"/>
@@ -101,6 +109,7 @@
                         <outlet property="CatalogPageControl" destination="lCO-fm-tas" id="h9h-2T-ZbO"/>
                         <outlet property="CatalogScrollView" destination="8Wm-M3-atv" id="0Yh-su-TtV"/>
                         <outlet property="DetailTextView" destination="1qD-Zc-TNJ" id="F04-aS-IyN"/>
+                        <outlet property="PostInstagramSwitch" destination="PjF-Tz-wHJ" id="fPG-7z-7ZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

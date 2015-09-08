@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let CatalogSelectNumber:String = "SelectNumber"
     let ToneControlMiddle:String = "TONE_CONTROL_MIDDLE"
     let ExpRev:String = "EXPREV"
+    let isPostInstagram:String = "PostInstagram"
     let CatalogSlectImageName:String = "SlectImageName"
     let NotificationWatchAppStared : NSString = "NotificationWatchAppStared"
 
@@ -33,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                             CatalogSelectNumber : 0,
                                             ToneControlMiddle: 7,
                                             ExpRev: 15,
+                                            isPostInstagram:0,
                                           ]
         defaults.registerDefaults(defaultvalue as [NSObject : AnyObject])
         return true
