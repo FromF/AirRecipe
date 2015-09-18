@@ -57,6 +57,21 @@ class RecViewController: UIViewController , MBProgressHUDDelegate {
         if !PostInstagram.canInstagramOpen() {
             instagramButton.enabled = false
         }
+        
+        //CameraRoll
+        let status = ALAssetsLibrary.authorizationStatus()
+        switch(status) {
+            case .Authorized:    //写真へのアクセスが許可されている
+                break
+            case .NotDetermined: //写真へのアクセスを許可するか選択されていない
+                break
+            case .Restricted:    //設定 > 一般 > 機能制限で利用が制限されている
+                cameraRollButton.enabled = false
+            case .Denied:        //設定 > プライバシー > 写真で利用が制限されている
+                cameraRollButton.enabled = false
+            default:
+                break
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -160,6 +175,7 @@ class RecViewController: UIViewController , MBProgressHUDDelegate {
             })
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
+                self.showHud(NSLocalizedString("SAVE_COMPLETE",comment: ""))
                 self.hideHud(NSLocalizedString("SAVE_COMPLETE",comment: "") , time:2.0)
             })
         })

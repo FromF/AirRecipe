@@ -258,20 +258,25 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     
     // MARK: - Button
     @IBAction func shutterButtonAction(sender: AnyObject) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            dispatch_async(dispatch_get_main_queue(), {
-                self.UpdateUIattribute(false, hidden: false)
+        if !debugMode {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.UpdateUIattribute(false, hidden: false)
+                })
+                var camera = AppDelegate.sharedCamera
+                
+                self.cameraWrapper.takePicture(camera)
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.UpdateUIattribute(true, hidden: false)
+                })
+                NSThread.sleepForTimeInterval(0.5)
+                self.updateCameraMediaRemain()
             })
-            var camera = AppDelegate.sharedCamera
-            
-            self.cameraWrapper.takePicture(camera)
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.UpdateUIattribute(true, hidden: false)
-            })
-            NSThread.sleepForTimeInterval(0.5)
-            self.updateCameraMediaRemain()
-        })
+        } else {
+            let image : UIImage = UIImage(named: "sample_through.jpg")!
+            performSegueWithIdentifier("recView", sender: image)
+        }
     }
     
     @IBAction func disconnectButtonAction(sender: AnyObject) {
