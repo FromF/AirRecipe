@@ -10,7 +10,7 @@ import UIKit
 import Social
 import AssetsLibrary
 
-class RecViewController: UIViewController {
+class RecViewController: UIViewController , MBProgressHUDDelegate {
     //UI
     @IBOutlet weak var recviewImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
@@ -25,6 +25,8 @@ class RecViewController: UIViewController {
     var recviewImage:UIImage!
     //撮影日付
     var originalDateTime:String = ""
+    //MBProgressHUD
+    var hud: MBProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,23 +160,29 @@ class RecViewController: UIViewController {
             })
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
-                let alertController : UIAlertController = UIAlertController(title: "", message: NSLocalizedString("SAVE_COMPLETE",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-                self.presentViewController(alertController, animated: true, completion: {() -> Void in
-                    let delay = 3.0 * Double(NSEC_PER_SEC)
-                    let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                    dispatch_after(time, dispatch_get_main_queue(), {
-                        UIView.animateWithDuration(0.8, animations: {() -> Void in
-                            
-                        })
-                        UIView.animateWithDuration(0.8, animations: {() -> Void in
-                            alertController.view.alpha = 0.0
-                            }, completion: {(finished) -> Void in
-                                alertController.dismissViewControllerAnimated(false, completion: nil)
-                                self.dismissViewControllerAnimated(true, completion: nil)
-                        })
-                    })
-                })
+                self.hideHud(NSLocalizedString("SAVE_COMPLETE",comment: "") , time:2.0)
             })
         })
     }
+    
+    // MARK: - MBProgressHUD
+    func showHud(message:String) {
+        hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        hud.dimBackground = true
+        hud.labelText = message
+        hud.mode = MBProgressHUDMode.Indeterminate
+        hud.show(true)
+    }
+    
+    func hideHud(message:String , time:NSTimeInterval) {
+        hud.labelText = message
+        hud.delegate = self
+        hud.mode = MBProgressHUDMode.Text
+        hud.hide(true, afterDelay: time)
+    }
+    
+    func hudWasHidden(hud: MBProgressHUD!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }
