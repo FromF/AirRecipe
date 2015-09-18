@@ -31,6 +31,7 @@
 		9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF061B4417050049FA0B /* LiveViewController.swift */; };
 		9D3FCF0A1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
 		9D3FCF0B1B441E280049FA0B /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */; };
+		9D43DEF11BA648CD00693719 /* CameraLiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D43DEF01BA648CD00693719 /* CameraLiveImageView.m */; };
 		9D5AAB581B67CEFE00666F67 /* sample_through.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D5AAB571B67CEFE00666F67 /* sample_through.jpg */; };
 		9D6881E31B4452AA0047D530 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D6881E21B4452AA0047D530 /* MBProgressHUD.m */; };
 		9D8D900C1B303908003FB89C /* AirRecipeBGP_01iAuto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D90081B303908003FB89C /* AirRecipeBGP_01iAuto.jpg */; };
@@ -53,6 +54,7 @@
 		9D9E08B01B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
 		9D9E08B11B170EA600281F48 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */; };
 		9D9F64601B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */; };
+		9DC230681BA86AD300103C7A /* RecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC230671BA86AD300103C7A /* RecViewController.swift */; };
 		A7BFBC721B9ED55C00638CF6 /* PostInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFBC711B9ED55C00638CF6 /* PostInstagram.m */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		9D3FCF061B4417050049FA0B /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		9D3FCF081B4418420049FA0B /* AirRecipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D3FCF091B441E280049FA0B /* CameraKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraKitWrapper.swift; sourceTree = "<group>"; };
+		9D43DEEF1BA648CD00693719 /* CameraLiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraLiveImageView.h; sourceTree = "<group>"; };
+		9D43DEF01BA648CD00693719 /* CameraLiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraLiveImageView.m; sourceTree = "<group>"; };
 		9D5AAB571B67CEFE00666F67 /* sample_through.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_through.jpg; path = Resouce/sample_through.jpg; sourceTree = "<group>"; };
 		9D6881E11B4452AA0047D530 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9D6881E21B4452AA0047D530 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -143,6 +147,9 @@
 		9D9E08AD1B170E7900281F48 /* AirRecipe WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		9D9E08AF1B170EA600281F48 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
 		9D9F645F1B3422D900F1B869 /* AirRecipeBGP_03Clip.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AirRecipeBGP_03Clip.jpg; path = Resouce/Image/AirRecipeBGP_03Clip.jpg; sourceTree = "<group>"; };
+		9DB36BB01BA72B6700EB5F33 /* ja-JP */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ja-JP"; path = "ja-JP.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9DB36BB11BA72B6700EB5F33 /* ja-JP */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ja-JP"; path = "ja-JP.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9DC230671BA86AD300103C7A /* RecViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecViewController.swift; sourceTree = "<group>"; };
 		A7BFBC701B9ED55C00638CF6 /* PostInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostInstagram.h; sourceTree = "<group>"; };
 		A7BFBC711B9ED55C00638CF6 /* PostInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostInstagram.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +208,8 @@
 		9D267E8A1B141E95002EFE1A /* AirRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				9D43DEEF1BA648CD00693719 /* CameraLiveImageView.h */,
+				9D43DEF01BA648CD00693719 /* CameraLiveImageView.m */,
 				9D6881E11B4452AA0047D530 /* MBProgressHUD.h */,
 				9D6881E21B4452AA0047D530 /* MBProgressHUD.m */,
 				A7BFBC701B9ED55C00638CF6 /* PostInstagram.h */,
@@ -210,6 +219,7 @@
 				9D267E8D1B141E95002EFE1A /* AppDelegate.swift */,
 				9D267E8F1B141E95002EFE1A /* ViewController.swift */,
 				9D3FCF061B4417050049FA0B /* LiveViewController.swift */,
+				9DC230671BA86AD300103C7A /* RecViewController.swift */,
 				9D267E911B141E96002EFE1A /* Main.storyboard */,
 				9D267E941B141E96002EFE1A /* Images.xcassets */,
 				9D267E961B141E96002EFE1A /* LaunchScreen.xib */,
@@ -440,6 +450,7 @@
 				en,
 				Base,
 				ja,
+				"ja-JP",
 			);
 			mainGroup = 9D267E7F1B141E95002EFE1A;
 			productRefGroup = 9D267E891B141E95002EFE1A /* Products */;
@@ -523,8 +534,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D43DEF11BA648CD00693719 /* CameraLiveImageView.m in Sources */,
 				A7BFBC721B9ED55C00638CF6 /* PostInstagram.m in Sources */,
 				9D267E901B141E95002EFE1A /* ViewController.swift in Sources */,
+				9DC230681BA86AD300103C7A /* RecViewController.swift in Sources */,
 				9D6881E31B4452AA0047D530 /* MBProgressHUD.m in Sources */,
 				9D3FCF071B4417050049FA0B /* LiveViewController.swift in Sources */,
 				9D267E8E1B141E95002EFE1A /* AppDelegate.swift in Sources */,
@@ -601,6 +614,7 @@
 			children = (
 				9D9E08A71B161D2300281F48 /* en */,
 				9D9E08AC1B161D5200281F48 /* ja */,
+				9DB36BB11BA72B6700EB5F33 /* ja-JP */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -610,6 +624,7 @@
 			children = (
 				9D9E08A91B161D3C00281F48 /* en */,
 				9D9E08AB1B161D5200281F48 /* ja */,
+				9DB36BB01BA72B6700EB5F33 /* ja-JP */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

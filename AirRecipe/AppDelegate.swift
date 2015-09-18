@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let isPostInstagram:String = "PostInstagram"
     let CatalogSlectImageName:String = "SlectImageName"
     let NotificationWatchAppStared : NSString = "NotificationWatchAppStared"
+    let NotificationCloseLiveViewContoller : NSString = "NotificationCloseLiveViewContoller"
 
     class var sharedCamera : OLYCamera {
         struct Static {

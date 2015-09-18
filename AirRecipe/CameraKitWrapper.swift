@@ -80,9 +80,12 @@ class CameraKitWrapper: NSObject {
         "<EXPREV/+4.7>",
         "<EXPREV/+5.0>",
     ]
+    var isAFlocking:Bool = false
 
     func connectOPC(index:NSInteger , camera:OLYCamera) {
         var result : Bool = true
+        var isConitueShooting : Bool = false
+        
         
         if ((result) && (!camera.connected)) {
             result = camera.connect(OLYCameraConnectionTypeWiFi, error: nil)
@@ -113,6 +116,7 @@ class CameraKitWrapper: NSObject {
                 ]
                 
             case 1: //CONTINUOUS_IMG
+                isConitueShooting = true
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/P>",
                     "COLORTONE":"<COLORTONE/I_FINISH>",
@@ -213,12 +217,14 @@ class CameraKitWrapper: NSObject {
                 ]
                 
             }
-            if !self.isClipsMovie {
+            if !isClipsMovie && !isHDRShooting && !isConitueShooting {
                 if self.isRecview {
                     propertyDictionary["RECVIEW"] = "<RECVIEW/ON>"
                 } else {
                     propertyDictionary["RECVIEW"] = "<RECVIEW/OFF>"
                 }
+            } else {
+                propertyDictionary["RECVIEW"] = "<RECVIEW/OFF>"
             }
             
             //println(self.propertyDictionary)
@@ -339,6 +345,74 @@ class CameraKitWrapper: NSObject {
                 }
             }
         }
+    }
+    
+    func setAfPoint(camera:OLYCamera , point:CGPoint) -> Bool {
+        isAFlocking = true
+        var result:Bool = true
+        
+        let focusModeSetting:String = camera.cameraPropertyValue("FOCUS_STILL", error: nil)
+        if focusModeSetting != "<FOCUS_STILL/FOCUS_MF>" {
+            if result {
+                result = unlockAF(camera)
+            }
+            if result {
+                result = camera.setAutoFocusPoint(point, error: nil)
+            }
+            if result {
+                result = lockAF(camera)
+            }
+        }
+        isAFlocking = false
+        
+        return result
+    }
+    
+    func lockAF(camera:OLYCamera) -> Bool {
+        var result:Bool = true
+        
+        let focusModeSetting:String = camera.cameraPropertyValue("FOCUS_STILL", error: nil)
+        if focusModeSetting != "<FOCUS_STILL/FOCUS_MF>" {
+            let lockState:String = camera.cameraPropertyValue("AF_LOCK_STATE", error: nil)
+            if lockState == "<AF_LOCK_STATE/UNLOCK>" {
+                let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0);
+                
+                camera.lockAutoFocus( { info -> Void in
+                    let af_result:String = info["result"] as! String
+                    if af_result == "ok" {
+                        //
+                    } else {
+                        result = false
+                    }
+                    dispatch_semaphore_signal(semaphore)
+                    println("Comp:"+af_result)
+                    }, errorHandler: { error -> Void in
+                        result = false
+                        dispatch_semaphore_signal(semaphore)
+                        println("Error")
+                })
+                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+                if !result {
+                    camera.unlockAutoFocus(nil)
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    func unlockAF(camera:OLYCamera) -> Bool {
+        var result:Bool = true
+        
+        let focusModeSetting:String = camera.cameraPropertyValue("FOCUS_STILL", error: nil)
+        if focusModeSetting != "<FOCUS_STILL/FOCUS_MF>" {
+            let lockState:String = camera.cameraPropertyValue("AF_LOCK_STATE", error: nil)
+            if lockState == "<AF_LOCK_STATE/LOCK>" {
+                camera.unlockAutoFocus(nil)
+            }
+        }
+        
+        return result
     }
     
     func setGeoLocation(camera:OLYCamera , location:CLLocation) {
@@ -503,4 +577,18 @@ class CameraKitWrapper: NSObject {
         let result = camera.setCameraPropertyValue("EXPREV", value: expRevSettingValueList[value], error: nil)
         return result
     }
+    func setRecView(camera:OLYCamera) -> Bool {
+        var property:String = "OFF"
+        if !isClipsMovie && !isHDRShooting {
+            if self.isRecview {
+                property = "ON"
+            } else {
+                property = "OFF"
+            }
+        }
+
+        let result = camera.setCameraPropertyValue("RECVIEW", value: "<RECVIEW/" + property + ">", error: nil)
+        return result
+    }
+    
 }

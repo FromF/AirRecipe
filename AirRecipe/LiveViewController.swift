@@ -14,7 +14,7 @@ import AudioToolbox
 class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCameraLiveViewDelegate , OLYCameraConnectionDelegate , OLYCameraPropertyDelegate , OLYCameraRecordingSupportsDelegate , MBProgressHUDDelegate {
     
     //
-    @IBOutlet weak var liveViewImage: UIImageView!
+    @IBOutlet weak var liveViewImage: CameraLiveImageView!
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var disconnectButton: UIButton!
     @IBOutlet weak var batteryLevelImage: UIImageView!
@@ -22,6 +22,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     @IBOutlet weak var digitalTeleconButton: UIButton!
     @IBOutlet weak var brightnessSlider: UISlider!
     @IBOutlet weak var brightnessEnableButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     //
     //AppDelegate instance
@@ -87,6 +88,9 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         //レックビュー有無
         cameraWrapper.isRecview = appDelegate.defaults.objectForKey(appDelegate.isPostInstagram) as! Bool
         
+        //シェアボタンの初期化
+        shareButtonUpdate()
+
         if !debugMode {
             //接続処理完了まではシャッターボタンは非表示にして動画時の表示変化が違和感を減らす
             self.UpdateUIattribute(false, hidden: true)
@@ -152,7 +156,17 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        //リモコン終了
+        endRemoteControl()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - CloseViewController
+    func closeLiveViewController() {
         //スリープ許可
         UIApplication.sharedApplication().idleTimerDisabled = false
         
@@ -163,16 +177,18 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         }
         camera.removeObserver(self, forKeyPath: "remainingImageCapacity")
         
+        //バックグラウンド通知切り
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: appDelegate.NotificationWatchAppStared as String, object: nil)
+        
         //CoreLocation Serivce
         locationManager.stopUpdatingLocation()
         
-        //リモコン終了
-        endRemoteControl()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //RecView画面閉じる
+        NSNotificationCenter.defaultCenter().postNotificationName(appDelegate.NotificationCloseLiveViewContoller as String, object:self)
+        
+        //View Close
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Rotate Support
@@ -183,6 +199,61 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     //指定方向に自動的に変更するか？
     override func shouldAutorotate() -> Bool{
         return true
+    }
+    
+    // MARK: - TouchAF処理
+    @IBAction func tapGesture(sender: AnyObject) {
+        touchAF(sender as! UITapGestureRecognizer)
+    }
+    
+    func touchAF(gesture:UIGestureRecognizer) -> Bool {
+        var result:Bool = true
+        
+        let camera = AppDelegate.sharedCamera
+        
+        let point:CGPoint = self.liveViewImage.pointWithGestureRecognizer(gesture)
+        if result {
+            if (!self.liveViewImage.containsPoint(point)) {
+                result = false
+            }
+        }
+        
+        if result {
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            
+            let focusWidth:CGFloat = 0.125
+            var focusHeight:CGFloat = 0.125
+            let imageWidth:CGFloat = self.liveViewImage.intrinsicContentSize().width
+            let imageHeight:CGFloat = self.liveViewImage.intrinsicContentSize().height
+            
+            if imageWidth > imageHeight {
+                focusHeight *= imageWidth / imageHeight
+            } else {
+                focusHeight *= imageHeight / imageWidth
+            }
+            let preFocusFrameRect : CGRect = CGRectMake(point.x - focusWidth / 2, point.y - focusHeight / 2, focusWidth, focusHeight)
+            
+            self.liveViewImage.showFocusFrame(preFocusFrameRect, status: CameraFocusFrameStatusRunning)
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                let camera = AppDelegate.sharedCamera
+                let af_result = self.cameraWrapper.setAfPoint(camera, point: point)
+                
+                if af_result == true {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.liveViewImage.showFocusFrame(preFocusFrameRect, status: CameraFocusFrameStatusFocused)
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    })
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.liveViewImage.showFocusFrame(preFocusFrameRect, status: CameraFocusFrameStatusFailed, duration: 1.0)
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    })
+                }
+            })
+        }
+        
+        return result
     }
     
     // MARK: - Button
@@ -204,7 +275,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     }
     
     @IBAction func disconnectButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeLiveViewController()
     }
     
     @IBAction func digitalTeleconButtonAction(sender: AnyObject) {
@@ -299,6 +370,34 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         updatebrightnessEnableButton()
     }
     
+    @IBAction func shareButtonAction(sender: AnyObject) {
+        //トグルする
+        if cameraWrapper.isRecview {
+            cameraWrapper.isRecview = false
+            
+        } else {
+            cameraWrapper.isRecview = true
+        }
+        
+        //設定保持
+        appDelegate.defaults.setObject(cameraWrapper.isRecview, forKey:appDelegate.isPostInstagram)
+        appDelegate.defaults.synchronize()
+        
+        //設定値反映
+        var camera = AppDelegate.sharedCamera
+        cameraWrapper.setRecView(camera)
+        
+        //表示更新
+        shareButtonUpdate()
+    }
+    
+    func shareButtonUpdate() {
+        if cameraWrapper.isRecview {
+            shareButton.setImage(UIImage(named: "share_selected"), forState: UIControlState.Normal)
+        } else {
+            shareButton.setImage(UIImage(named: "share"), forState: UIControlState.Normal)
+        }
+    }
     
     func UpdateUIattribute(enabled:Bool , hidden:Bool) {
         let camera = AppDelegate.sharedCamera
@@ -307,6 +406,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         digitalTeleconButton.enabled = enabled
         brightnessSlider.enabled = enabled
         brightnessEnableButton.enabled = enabled
+        shareButton.enabled = enabled
         
         shutterButton.hidden = hidden
         batteryLevelImage.hidden = hidden
@@ -314,6 +414,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         digitalTeleconButton.hidden = hidden
         brightnessSlider.hidden = hidden
         brightnessEnableButton.hidden = hidden
+        shareButton.hidden = hidden
         
         if !cameraWrapper.enableBrightness {
             //明るさ調節不可
@@ -323,6 +424,11 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         if (!cameraWrapper.enableBrightness) || (!brightnessSliderEnable) {
             //明るさ調節不可
             brightnessSlider.hidden = true
+        }
+        
+        if cameraWrapper.isClipsMovie || cameraWrapper.isHDRShooting || actionType.value == OLYCameraActionTypeSequential.value {
+            //シェア不可
+            shareButton.hidden = true
         }
     }
 
@@ -334,19 +440,15 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     
     // MARK: - RecView
     func camera(camera: OLYCamera!, didReceiveCapturedImagePreview data: NSData!, metadata: [NSObject : AnyObject]!) {
-        if PostInstagram.canInstagramOpen() {
-            let instagramViewController:PostInstagram = PostInstagram()
-            instagramViewController.setImageData(data)
-            self.view.addSubview(instagramViewController.view)
-            self.addChildViewController(instagramViewController)
-        }
+        let image : UIImage = OLYCameraConvertDataToImage(data,metadata)
+        performSegueWithIdentifier("recView", sender: image)
     }
     
     // MARK: - ConnectionDelegate
     func camera(camera: OLYCamera!, disconnectedByError error: NSError!) {
         //AIRとの接続が解除されたのでViewを閉じる
         println("OLYCamera Disconnected")
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeLiveViewController()
     }
     
     // MARK: - cameraPropertyDelegate
@@ -380,7 +482,7 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
             updateCameraStatus()
         } else {
             //Hudが閉じられた時にAIRと接続されていない場合にはViewを閉じる
-            self.dismissViewControllerAnimated(true, completion: nil)
+            closeLiveViewController()
         }
     }
     
@@ -415,16 +517,12 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
     // MARK: - Notification
     func NotificationApplicationBackground(notification : NSNotification?) {
         //バックグラウンドに遷移したのでAIRとの切断処理してViewを閉じる
-        var camera = AppDelegate.sharedCamera
-        cameraWrapper.disconnect(camera)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeLiveViewController()
     }
     
     func NotificationWatchAppStared(notification : NSNotification?) {
         //AppleWatch側が起動したのでAIRとの切断処理してViewを閉じる
-        var camera = AppDelegate.sharedCamera
-        cameraWrapper.disconnect(camera)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        closeLiveViewController()
     }
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
@@ -477,14 +575,10 @@ class LiveViewController: UIViewController ,CLLocationManagerDelegate ,OLYCamera
         volumeSlider.value = initialVolume
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK:- Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        var recViewController:RecViewController = segue.destinationViewController as! RecViewController
+        recViewController.recviewImage = sender as! UIImage
     }
-    */
 
 }

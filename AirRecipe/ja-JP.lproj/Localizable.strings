@@ -1,0 +1,43 @@
+/* 
+  Language.strings
+  AirRecipe
+
+  Created by Fuji on 2015/09/15.
+  Copyright (c) 2015年 FromF. All rights reserved.
+*/
+CONNECTING = "接続中...";
+CONNECTFAIL = "接続失敗";
+CONNECTCOMPLETE = "接続完了";
+
+SINGLE_TITLE = "単写撮影";
+SINGLE = "AIR A01 が自動的にシーンを判別しオートできれいに撮影します。";
+
+CONTINUOUS_TITLE = "連写撮影";
+CONTINUOUS = "1秒間に10枚の連続撮影します。\n被写体の連続した動きや動きの中の一瞬を撮影することができます。";
+
+//MOVIE_TITLE = "";
+//MOVIE = "動画撮影\n動画（Full HD/30fps）で撮影します。";
+
+CLIPS_TITLE = "クリップ撮影";
+CLIPS = "クリップ（ショート動画）を撮影します。\nクリップの録画時間はスタンドアロン設定を引き継ぎます。\n※ オリンパスの公式アプリ（OA.Clips）で、複数のクリップをつなぎ合わせて１つのショート動画を作成できます。";
+
+HDR_TITLE = "HDRブラケット撮影";
+HDR = "HDR 合成用の写真を以下設定で3枚撮影します。\n- 撮影モード：A（絞り優先）モード, F8\n- 露出補正：+2.0, 0, 2.0\n※ ISO感度とホワイトバランスと画質モードはスタンドアロン設定を引き継ぎます。";
+
+SINGLE_IMG = "AirRecipeBGP_01iAuto";
+CONTINUOUS_IMG = "AirRecipeBGP_02Burst";
+//MOVIE_IMG = "AirRecipeBGP_03Movie";
+CLIPS_IMG = "AirRecipeBGP_03Clip";
+HDR_IMG = "AirRecipeBGP_04HdrBkt";
+
+MOON_TITLE = "お月さま撮影";
+MOON = "お月さまを月齢に合わせた設定でキレイに撮影できます。\nAIR A01 を三脚などに固定し、お月さまをライブビューの真ん中に配置して撮影してください。\n※ 焦点距離が 150mm 以上の望遠レンズの使用をお勧めします。";
+MOON_IMG = "AirRecipeBGP_05Moon";
+MONTH_OLD = "月齢";
+
+WATERFALL_TITLE = "シルキー滝撮影";
+WATERFALL = "滝の水の流れをシルキーに表現するスローシャッター(1秒)で撮影できます。\nAIR A01 を三脚などに固定して撮影してください。\n※ ND8 フィルターをレンズに装着しての撮影をお勧めします。";
+WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";
+FIREWORKS_TITLE = "打ち上げ花火撮影";
+FIREWORKS = "打ち上げ花火をダイナミックに表現するスローシャッター(4秒)で撮影できます。\nAIR A01 を三脚などに固定して撮影してください。";
+FIREWORKS_IMG = "AirRecipeBGP_07FireWorls";

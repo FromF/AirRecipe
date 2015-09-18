@@ -13,5 +13,6 @@
 #import <OLYCameraKit/OACentralConfiguration.h>
 #import "MBProgressHUD.h"
 #import "PostInstagram.h"
+#import "CameraLiveImageView.h"
 
 #endif
