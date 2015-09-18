@@ -158,7 +158,22 @@ class RecViewController: UIViewController {
             })
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
             dispatch_async(dispatch_get_main_queue(), {
-                self.dismissViewControllerAnimated(true, completion: nil)
+                let alertController : UIAlertController = UIAlertController(title: "", message: NSLocalizedString("SAVE_COMPLETE",comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+                self.presentViewController(alertController, animated: true, completion: {() -> Void in
+                    let delay = 3.0 * Double(NSEC_PER_SEC)
+                    let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(time, dispatch_get_main_queue(), {
+                        UIView.animateWithDuration(0.8, animations: {() -> Void in
+                            
+                        })
+                        UIView.animateWithDuration(0.8, animations: {() -> Void in
+                            alertController.view.alpha = 0.0
+                            }, completion: {(finished) -> Void in
+                                alertController.dismissViewControllerAnimated(false, completion: nil)
+                                self.dismissViewControllerAnimated(true, completion: nil)
+                        })
+                    })
+                })
             })
         })
     }

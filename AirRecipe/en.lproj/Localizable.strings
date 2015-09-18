@@ -8,6 +8,7 @@
 CONNECTING = "Connecting...";
 CONNECTFAIL = "Connect failure";
 CONNECTCOMPLETE = "Connection completion";
+SAVE_COMPLETE = "Photo saved to Camera Roll.";
 
 SINGLE_TITLE = "Single shooting";
 SINGLE = "Air A01 automatically detects shooting scenes and applies optimal exposure control.";

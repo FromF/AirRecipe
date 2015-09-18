@@ -8,6 +8,7 @@
 CONNECTING = "接続中...";
 CONNECTFAIL = "接続失敗";
 CONNECTCOMPLETE = "接続完了";
+SAVE_COMPLETE = "カメラロールに保存しました。";
 
 SINGLE_TITLE = "単写撮影";
 SINGLE = "AIR A01 が自動的にシーンを判別しオートできれいに撮影します。";
