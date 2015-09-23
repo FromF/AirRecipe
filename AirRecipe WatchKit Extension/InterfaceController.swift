@@ -18,19 +18,10 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
     var locationManager = CLLocationManager()
     //CameraKit
     var camera = OLYCamera()
-    //CameraProperty
-    var propertyDictionary = [
-        "TAKEMODE":"<TAKEMODE/iAuto>",
-        "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
-    ]
     //LiveViewCounter
     var liveviewCount : NSInteger = 0
-    //Clips Mode Flag
-    var isClipsMovie : Bool = false
-    //HDR Mode Flag
-    var isHDRShooting : Bool = false
-    //AF Point Center Flag
-    var isAFPointCenter : Bool = false
+    //Recipe Number
+    var index:NSInteger = 0
     //CameraKitWrapper
     let cameraWrapper = CameraKitWrapper()
     //UI
@@ -90,7 +81,7 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
                 self.Button.setEnabled(true)
                 var actionType :OLYCameraActionType = self.camera.actionType()
                 if (actionType.value == OLYCameraActionTypeMovie.value) {
-                    if (!self.isClipsMovie) {
+                    if (!self.cameraWrapper.isClipsMovie) {
                         if (self.camera.recordingVideo) {
                             self.Button.setTitle("Stop")
                         } else {
@@ -111,26 +102,44 @@ class InterfaceController: WKInterfaceController ,CLLocationManagerDelegate , OL
 
     //MARK:- Connect Sequence
     func connectSequence() {
-        //ボタンを無効にする
-        imageView.setImage(nil)
-        Button.setEnabled(false)
-        Button.setTitle("Connecting")
-        
-        self.camera.liveViewDelegate = self
-        self.camera.connectionDelegate = self
-        
-        WKInterfaceController.openParentApplication(["getinfo": ""],
-            reply: {replyInfo, error in
-                //self.propertyDictionary.removeAll(keepCapacity: false)
-                var index:NSInteger = 0
-                var relyInfokeys = Array(replyInfo.keys)
-                for relyInfokey in relyInfokeys {
-                    if relyInfokey == self.CatalogSelectNumber {
-                        //index値格納
-                        index = (replyInfo["\(relyInfokey)"] as! String).toInt()!
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let semaphore:dispatch_semaphore_t = dispatch_semaphore_create(0);
+            dispatch_async(dispatch_get_main_queue(), {
+                //ボタンを無効にする
+                self.imageView.setImage(nil)
+                self.Button.setEnabled(false)
+                self.Button.setTitle("Connecting")
+            })
+            
+            self.camera.liveViewDelegate = self
+            self.camera.connectionDelegate = self
+            
+            let result = WKInterfaceController.openParentApplication(["getinfo": ""],
+                reply: {replyInfo, error in
+                    //self.propertyDictionary.removeAll(keepCapacity: false)
+                    var relyInfokeys = Array(replyInfo.keys)
+                    for relyInfokey in relyInfokeys {
+                        if relyInfokey == self.CatalogSelectNumber {
+                            //index値格納
+                            self.index = (replyInfo["\(relyInfokey)"] as! String).toInt()!
+                        }
                     }
+                    dispatch_semaphore_signal(semaphore)
+            })
+            if result == false {
+                println("openParentApplication Error")
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.ButtonUpdate()
+                })
+            } else {
+                let timeout : dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC))
+                let result : Int = dispatch_semaphore_wait(semaphore, timeout)
+                if result != 0 {
+                    //openParentApplicationで本来はiPhone側のアプリが起動するはずだが、反応がない場合は前回のRecipeで起動させる
+                    println("openParentApplication Timeout")
                 }
-                self.connectOPC(index)
+                self.connectOPC(self.index)
+            }
         })
     }
     
