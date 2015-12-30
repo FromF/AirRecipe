@@ -19,7 +19,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     var locationManager = CLLocationManager()
     //
     var CatalogImageViews:AnyObject!
-    let CatalogPageMax:NSInteger = 7
+    let CatalogPageMax:NSInteger = 8
     //Debug Mode
     var debugCount:NSInteger = 0
     var debugMode:Bool = false
@@ -150,6 +150,9 @@ class ViewController: UIViewController , UIScrollViewDelegate {
             case 6:
                 stringTitle  = NSLocalizedString("FIREWORKS_TITLE",comment: "")
                 stringDetail = NSLocalizedString("FIREWORKS",comment: "")
+            case 7:
+                stringTitle  = NSLocalizedString("ILLUMINATION_TITLE",comment: "")
+                stringDetail = NSLocalizedString("ILLUMINATION",comment: "")
             default:
                 self.DetailTextView.text = "---"
         }

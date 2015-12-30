@@ -42,3 +42,8 @@ WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";
 FIREWORKS_TITLE = "Fireworks shooting";
 FIREWORKS = "Shoot the fireworks with slow shutter setting(4sec) in order to express it to dynamic. \nUse a tripod to fix your Air A01.";
 FIREWORKS_IMG = "AirRecipeBGP_07FireWorls";
+
+ILLUMINATION_TITLE = "Illuminations shooting";
+ILLUMINATION = "You can beautifully capture the illuminations which decorate the night.";
+ILLUMINATION_IMG = "AirRecipeBGP_08Illumi";
+

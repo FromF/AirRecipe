@@ -210,6 +210,19 @@ class CameraKitWrapper: NSObject {
                     "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
                     "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
                 ]
+            case 7: //ILLUMINATION_IMG
+                self.propertyDictionary = [
+                    "TAKEMODE":"<TAKEMODE/P>",
+                    "EXPREV":"<EXPREV/+0.7>",
+                    "COLORTONE":"<COLORTONE/FANTASIC_FOCUS>",
+                    "ART_EFFECT_HYBRID_FANTASIC_FOCUS":"<ART_EFFECT_HYBRID_FANTASIC_FOCUS/STARLIGHT>",
+                    "TAKE_DRIVE":"<TAKE_DRIVE/DRIVE_NORMAL>",
+                    "WB":"<WB/WB_AUTO>",
+                    "TONE_CONTROL_LOW":"<TONE_CONTROL_LOW/0>",
+                    "TONE_CONTROL_MIDDLE":toneControlMiddleSettingList[toneControlMiddleValue],
+                    "TONE_CONTROL_HIGH":"<TONE_CONTROL_HIGH/0>",
+                    "AUTO_WB_DENKYU_COLORED_LEAVING":"<AUTO_WB_DENKYU_COLORED_LEAVING/ON>",
+                ]
             default:
                 self.propertyDictionary = [
                     "TAKEMODE":"<TAKEMODE/iAuto>",

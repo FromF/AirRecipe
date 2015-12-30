@@ -42,3 +42,8 @@ WATERFALL_IMG = "AirRecipeBGP_06SilkyFall";
 FIREWORKS_TITLE = "打ち上げ花火撮影";
 FIREWORKS = "打ち上げ花火をダイナミックに表現するスローシャッター(4秒)で撮影できます。\nAIR A01 を三脚などに固定して撮影してください。";
 FIREWORKS_IMG = "AirRecipeBGP_07FireWorls";
+
+ILLUMINATION_TITLE = "イルミネーション撮影";
+ILLUMINATION = "夜を彩るイルミネーションをファンタジックに、煌びやかに撮影することができます。";
+ILLUMINATION_IMG = "AirRecipeBGP_08Illumi";
+
