@@ -1,9 +1,0 @@
-/* 
-  InfoPlist.strings
-  AirRecipe
-
-  Created by Fuji on 2015/05/28.
-  Copyright (c) 2015年 FromF. All rights reserved.
-*/
-NSLocationWhenInUseUsageDescription = "Add Geotag to a photo captured by Air A01.";
-NSLocationAlwaysUsageDescription = "Add Geotag to a photo captured by Air A01.";

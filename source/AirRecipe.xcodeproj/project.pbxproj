@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37D86DBAC0BFC846BB7D7761 /* Pods_AirRecipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76D41869BFC6558B31C5259 /* Pods_AirRecipe.framework */; };
+		9DC4180D20412B4C00D66B7E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4180C20412B4C00D66B7E /* SettingViewController.swift */; };
+		9DC41810204132ED00D66B7E /* WifiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC4180F204132ED00D66B7E /* WifiManager.swift */; };
+		9DC418132041379900D66B7E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC418112041374800D66B7E /* NetworkExtension.framework */; };
+		9DF1C70D203CDA89002069A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C70C203CDA89002069A9 /* AppDelegate.swift */; };
+		9DF1C70F203CDA89002069A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C70E203CDA89002069A9 /* ViewController.swift */; };
+		9DF1C712203CDA89002069A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF1C710203CDA89002069A9 /* Main.storyboard */; };
+		9DF1C714203CDA89002069A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF1C713203CDA89002069A9 /* Assets.xcassets */; };
+		9DF1C717203CDA89002069A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF1C715203CDA89002069A9 /* LaunchScreen.storyboard */; };
+		9DF1C720203CDAC8002069A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DF1C722203CDAC8002069A9 /* Localizable.strings */; };
+		9DF1C726203CDBFA002069A9 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C725203CDBFA002069A9 /* SceneManager.swift */; };
+		9DF1C729203DC30F002069A9 /* OLYCameraKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF1C728203DC30F002069A9 /* OLYCameraKit.framework */; };
+		9DF1C72F203DC3A7002069A9 /* CameraKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C72E203DC3A7002069A9 /* CameraKitWrapper.swift */; };
+		9DF1C731203DC67A002069A9 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C730203DC67A002069A9 /* LiveViewController.swift */; };
+		9DF1C737203DC799002069A9 /* CameraLiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF1C736203DC799002069A9 /* CameraLiveImageView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		48F0FF6C50D8C239C1BAD2AC /* Pods-AirRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirRecipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirRecipe/Pods-AirRecipe.debug.xcconfig"; sourceTree = "<group>"; };
+		9D2DF3EDAEC2F84F342FAC86 /* Pods-AirRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirRecipe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirRecipe/Pods-AirRecipe.release.xcconfig"; sourceTree = "<group>"; };
+		9DC4180C20412B4C00D66B7E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		9DC4180F204132ED00D66B7E /* WifiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiManager.swift; sourceTree = "<group>"; };
+		9DC418112041374800D66B7E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		9DC418142041379900D66B7E /* AirRecipe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirRecipe.entitlements; sourceTree = "<group>"; };
+		9DF1C709203CDA89002069A9 /* AirRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF1C70C203CDA89002069A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DF1C70E203CDA89002069A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DF1C711203CDA89002069A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DF1C713203CDA89002069A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DF1C716203CDA89002069A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DF1C718203CDA89002069A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF1C723203CDACF002069A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9DF1C724203CDAE8002069A9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9DF1C725203CDBFA002069A9 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		9DF1C728203DC30F002069A9 /* OLYCameraKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OLYCameraKit.framework; sourceTree = "<group>"; };
+		9DF1C72A203DC322002069A9 /* AirRecipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirRecipe-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DF1C72E203DC3A7002069A9 /* CameraKitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKitWrapper.swift; sourceTree = "<group>"; };
+		9DF1C730203DC67A002069A9 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		9DF1C735203DC799002069A9 /* CameraLiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraLiveImageView.h; sourceTree = "<group>"; };
+		9DF1C736203DC799002069A9 /* CameraLiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraLiveImageView.m; sourceTree = "<group>"; };
+		C76D41869BFC6558B31C5259 /* Pods_AirRecipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirRecipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DF1C706203CDA89002069A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37D86DBAC0BFC846BB7D7761 /* Pods_AirRecipe.framework in Frameworks */,
+				9DC418132041379900D66B7E /* NetworkExtension.framework in Frameworks */,
+				9DF1C729203DC30F002069A9 /* OLYCameraKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C8655250B39E9A513B2C6A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DC418112041374800D66B7E /* NetworkExtension.framework */,
+				C76D41869BFC6558B31C5259 /* Pods_AirRecipe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5588311E9D3D21AB903C20D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48F0FF6C50D8C239C1BAD2AC /* Pods-AirRecipe.debug.xcconfig */,
+				9D2DF3EDAEC2F84F342FAC86 /* Pods-AirRecipe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9DC4180E204132D800D66B7E /* ConnectKit */ = {
+			isa = PBXGroup;
+			children = (
+				9DC4180F204132ED00D66B7E /* WifiManager.swift */,
+			);
+			path = ConnectKit;
+			sourceTree = "<group>";
+		};
+		9DF1C700203CDA89002069A9 = {
+			isa = PBXGroup;
+			children = (
+				9DF1C70B203CDA89002069A9 /* AirRecipe */,
+				9DF1C70A203CDA89002069A9 /* Products */,
+				5588311E9D3D21AB903C20D0 /* Pods */,
+				1C8655250B39E9A513B2C6A6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DF1C70A203CDA89002069A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DF1C709203CDA89002069A9 /* AirRecipe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DF1C70B203CDA89002069A9 /* AirRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				9DC418142041379900D66B7E /* AirRecipe.entitlements */,
+				9DC4180E204132D800D66B7E /* ConnectKit */,
+				9DF1C727203DC2FF002069A9 /* CameraKit */,
+				9DF1C725203CDBFA002069A9 /* SceneManager.swift */,
+				9DF1C70C203CDA89002069A9 /* AppDelegate.swift */,
+				9DF1C70E203CDA89002069A9 /* ViewController.swift */,
+				9DF1C730203DC67A002069A9 /* LiveViewController.swift */,
+				9DC4180C20412B4C00D66B7E /* SettingViewController.swift */,
+				9DF1C710203CDA89002069A9 /* Main.storyboard */,
+				9DF1C713203CDA89002069A9 /* Assets.xcassets */,
+				9DF1C715203CDA89002069A9 /* LaunchScreen.storyboard */,
+				9DF1C718203CDA89002069A9 /* Info.plist */,
+				9DF1C722203CDAC8002069A9 /* Localizable.strings */,
+			);
+			path = AirRecipe;
+			sourceTree = "<group>";
+		};
+		9DF1C727203DC2FF002069A9 /* CameraKit */ = {
+			isa = PBXGroup;
+			children = (
+				9DF1C728203DC30F002069A9 /* OLYCameraKit.framework */,
+				9DF1C735203DC799002069A9 /* CameraLiveImageView.h */,
+				9DF1C736203DC799002069A9 /* CameraLiveImageView.m */,
+				9DF1C72A203DC322002069A9 /* AirRecipe-Bridging-Header.h */,
+				9DF1C72E203DC3A7002069A9 /* CameraKitWrapper.swift */,
+			);
+			path = CameraKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DF1C708203CDA89002069A9 /* AirRecipe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DF1C71B203CDA89002069A9 /* Build configuration list for PBXNativeTarget "AirRecipe" */;
+			buildPhases = (
+				DE5FD333F026F8AECBE1CE86 /* [CP] Check Pods Manifest.lock */,
+				9DF1C705203CDA89002069A9 /* Sources */,
+				9DF1C706203CDA89002069A9 /* Frameworks */,
+				9DF1C707203CDA89002069A9 /* Resources */,
+				27B8881CD67F7653860A1851 /* [CP] Embed Pods Frameworks */,
+				9C9F7CF797D21A8F4423239F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirRecipe;
+			productName = AirRecipe;
+			productReference = 9DF1C709203CDA89002069A9 /* AirRecipe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DF1C701203CDA89002069A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Personal;
+				TargetAttributes = {
+					9DF1C708203CDA89002069A9 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HotspotConfiguration = {
+								enabled = 1;
+							};
+							com.apple.NetworkExtensions.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 9DF1C704203CDA89002069A9 /* Build configuration list for PBXProject "AirRecipe" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = 9DF1C700203CDA89002069A9;
+			productRefGroup = 9DF1C70A203CDA89002069A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DF1C708203CDA89002069A9 /* AirRecipe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DF1C707203CDA89002069A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF1C717203CDA89002069A9 /* LaunchScreen.storyboard in Resources */,
+				9DF1C720203CDAC8002069A9 /* Localizable.strings in Resources */,
+				9DF1C714203CDA89002069A9 /* Assets.xcassets in Resources */,
+				9DF1C712203CDA89002069A9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		27B8881CD67F7653860A1851 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AirRecipe/Pods-AirRecipe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirRecipe/Pods-AirRecipe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C9F7CF797D21A8F4423239F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirRecipe/Pods-AirRecipe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE5FD333F026F8AECBE1CE86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirRecipe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DF1C705203CDA89002069A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF1C70F203CDA89002069A9 /* ViewController.swift in Sources */,
+				9DF1C737203DC799002069A9 /* CameraLiveImageView.m in Sources */,
+				9DF1C726203CDBFA002069A9 /* SceneManager.swift in Sources */,
+				9DF1C70D203CDA89002069A9 /* AppDelegate.swift in Sources */,
+				9DF1C72F203DC3A7002069A9 /* CameraKitWrapper.swift in Sources */,
+				9DC4180D20412B4C00D66B7E /* SettingViewController.swift in Sources */,
+				9DC41810204132ED00D66B7E /* WifiManager.swift in Sources */,
+				9DF1C731203DC67A002069A9 /* LiveViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9DF1C710203CDA89002069A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF1C711203CDA89002069A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DF1C715203CDA89002069A9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF1C716203CDA89002069A9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9DF1C722203CDAC8002069A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF1C723203CDACF002069A9 /* Base */,
+				9DF1C724203CDAE8002069A9 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DF1C719203CDA89002069A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DF1C71A203CDA89002069A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DF1C71C203CDA89002069A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48F0FF6C50D8C239C1BAD2AC /* Pods-AirRecipe.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AirRecipe/AirRecipe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BJR2WYNRK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AirRecipe/CameraKit",
+				);
+				INFOPLIST_FILE = AirRecipe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-ObjC",
+				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = FromF.github.com.AirRecipe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AirRecipe/CameraKit/AirRecipe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DF1C71D203CDA89002069A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D2DF3EDAEC2F84F342FAC86 /* Pods-AirRecipe.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AirRecipe/AirRecipe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BJR2WYNRK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AirRecipe/CameraKit",
+				);
+				INFOPLIST_FILE = AirRecipe/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FromF.github.com.AirRecipe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AirRecipe/CameraKit/AirRecipe-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DF1C704203CDA89002069A9 /* Build configuration list for PBXProject "AirRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF1C719203CDA89002069A9 /* Debug */,
+				9DF1C71A203CDA89002069A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DF1C71B203CDA89002069A9 /* Build configuration list for PBXNativeTarget "AirRecipe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF1C71C203CDA89002069A9 /* Debug */,
+				9DF1C71D203CDA89002069A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DF1C701203CDA89002069A9 /* Project object */;
+}

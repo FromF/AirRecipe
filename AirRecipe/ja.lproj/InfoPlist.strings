@@ -1,9 +1,0 @@
-/* 
-  InfoPlist.strings
-  AirRecipe
-
-  Created by Fuji on 2015/05/28.
-  Copyright (c) 2015年 FromF. All rights reserved.
-*/
-NSLocationWhenInUseUsageDescription = "AIR A01 で撮影した写真に位置情報タグを追加します。";
-NSLocationAlwaysUsageDescription = "AIR A01 で撮影した写真に位置情報タグを追加します。";
